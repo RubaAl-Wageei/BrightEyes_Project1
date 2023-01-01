@@ -79,7 +79,25 @@ public static function deleteProduct($id){
     $con->execute();
 
 }
- 
+
+// function public user
+
+public static function selectProductt(){
+    $data = array();
+    $con=crud::connect()->prepare("SELECT * FROM products");
+    $con->execute();
+    $data= $con->fetchAll(PDO::FETCH_ASSOC);
+    return    $data;
+}
+public static function selectComments(){
+    $data = array();
+    $sql="SELECT users.FullName,users.image,comments.comment,comments.comment_date,comments.product_id
+    FROM comments
+    INNER JOIN users ON users.id=comments.user_id WHERE comments.product_id=:id";
+    $con=crud::connect()->prepare($sql);
+  
+    return    $con;
+}
 
 }
 

@@ -4,7 +4,7 @@
 //     header("location:./index.php");
 // }
 ?>
-<?php require('../bublic/config.php'); ?>
+<?php require('../config.php'); ?>
 
 <?php 
 if(isset($_POST['submit'])){

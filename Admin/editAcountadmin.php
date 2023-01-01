@@ -1,6 +1,6 @@
-<?php include('./include/header.php');?>
+<?php include('./includes/header.php');?>
 
-<?php require('../bublic/config.php'); ?>
+<?php require('../config.php'); ?>
 
 <?php  ?>
 <?php 
@@ -227,4 +227,4 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 && in_array( $file
 
 
 
-<?php include('./include/footer.php');?>
+<?php include('./includes/footer.php');?>

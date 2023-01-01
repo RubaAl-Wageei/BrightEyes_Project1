@@ -3,7 +3,7 @@ include('./includes/header.php');
 ?>
 
  
-    <?php require('./config.php');  ?>
+    <?php require('../config.php');  ?>
 
 
 
@@ -41,7 +41,7 @@ include('./includes/header.php');
      if(in_array( $file_extenshion, $array_extension)){
  
      // $upload_image= 'images/'. $fileimagename;
-     $upload_image='./image/'.$imagename;
+     $upload_image='../image/'.$imagename;
      move_uploaded_file($imagetemp,  $upload_image);
         
      }else{

@@ -3,7 +3,7 @@ include('./includes/header.php');
 ?>
 
  
-    <?php require('./config.php');  ?>
+    <?php require('../config.php');  ?>
 
 
     
@@ -42,8 +42,9 @@ include('./includes/header.php');
                                             <tr>
                                                 <th>#</th>
                                                 <th>order id</th>
+                                                <th>user id</th>
+                                                <th >user name </th>
                                                 <th>order date</th>
-                                                <th >user id</th>
                                                 <th>total price</th>
                     
                                             </tr>
@@ -56,8 +57,9 @@ include('./includes/header.php');
                                             <tr>
                                                 <td><?php echo $i++;?></td>  
                                                 <td><?php echo $value['order_id'];?></td>
-                                                <td><?php echo $value['order_date'];?></td> 
-                                                <td><?php echo $value['user_id'];?> </td> 
+                                                <td><?php echo $value['id'];?></td> 
+                                                <td><?php echo $value['FullName'];?></td> 
+                                                <td><?php echo $value['order_date'];?> </td> 
                                                 <td><?php echo $value['total_price'];?></td> 
                                             
 

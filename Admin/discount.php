@@ -46,7 +46,6 @@ include('./includes/header.php');
 
 
                                         <?php 
-                                        // محاوله تجربه نفس الشيء في صفحه اخرى للدسكاونت لقراءه الكود
                  
                                         ?>
 
@@ -138,7 +137,7 @@ include('./includes/header.php');
                                                 <td><?php echo $value['new_Price'];?></td>
                                                 <td> <?php echo "<img src='{$value['image']}'style=\"width:100px\">"?></td>
                                                 <form method="post">
-                                                <td><a href="./discountRemove.php?id=<?php echo $value['id'];?>"><span>Add new</span></a></td>
+                                                <td><a href="./discountRemove.php?id=<?php echo $value['id'];?>"><span>Remove Discount</span></a></td>
                                                  </form>
                                             </tr>                        
                                             <?php  endforeach ;?>

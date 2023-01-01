@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,40 +50,59 @@
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
                     <div class="image img-cir img-120">
-                        <img src="images/icon/avatar-big-01.jpg" alt="John Doe" />
+                        <?php echo "<img src='{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
                     </div>
-                    <h4 class="name">john doe</h4>
-                    <a href="#">Sign out</a>
+                    <h4 class="name"><?php echo $_SESSION['name'];?></h4>
+                    <a href="../login.php">Sign out</a>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-tachometer-alt"></i>Dashboard
+                                <i class="fas fa-tachometer-alt"></i>USERS
                                 <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="index.html">
-                                        <i class="fas fa-tachometer-alt"></i>Dashboard 1</a>
+                                    <a href="./users.php">
+                                        <i class="fas fa-tachometer-alt"></i>users</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">
-                                        <i class="fas fa-tachometer-alt"></i>Dashboard 2</a>
+                                    <a href="http://localhost/BrightEyes_Project1/admin/addUser.php">
+                                        <i class="fas fa-tachometer-alt"></i>add user</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">
-                                        <i class="fas fa-tachometer-alt"></i>Dashboard 3</a>
+                                    <a href="./editUser.php">
+                                        <i class="fas fa-tachometer-alt"></i>edit user</a>
                                 </li>
-                                <li>
-                                    <a href="index4.html">
-                                        <i class="fas fa-tachometer-alt"></i>Dashboard 4</a>
-                                </li>
+                                
                             </ul>
                         </li>
-                    <ul class="list-unstyled navbar__list">
+                        <li class="active has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>category
+                                <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
+                            </a>
+                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="http://localhost/BrightEyes_Project1/Admin/category.php">
+                                        <i class="fas fa-tachometer-alt"></i>category table</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/BrightEyes_Project1/Admin/addCategory.php">
+                                        <i class="fas fa-tachometer-alt"></i>add category</a>
+                                </li>
+                                <li>
+                                    <a href="http://localhost/BrightEyes_Project1/Admin/editCategory.php">
+                                        <i class="fas fa-tachometer-alt"></i>edit category</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>products
@@ -91,32 +112,25 @@
                             </a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="./">
+                                    <a href="./productsTable.php">
                                         <i class="fas fa-tachometer-alt"></i>prduct 1</a>
                                 </li>
                                 <li>
-                                    <a href="index2.html">
+                                    <a href="./productsEdit.php">
                                         <i class="fas fa-tachometer-alt"></i>edit 2</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">
-                                        <i class="fas fa-tachometer-alt"></i>Dashboard 3</a>
+                                    <a href="./productsAdd.php">
+                                        <i class="fas fa-tachometer-alt"></i>ADD PRODUCT</a>
                                 </li>
                                 <li>
-                                    <a href="index4.html">
-                                        <i class="fas fa-tachometer-alt"></i>Dashboard 4</a>
+                                    <a href="./productsOrder.php">
+                                        <i class="fas fa-tachometer-alt"></i>Orders </a>
                                 </li>
                             </ul>
                         </li>
-                        <li>
-                            <a href="inbox.html">
-                                <i class="fas fa-chart-bar"></i>Inbox</a>
-                            <span class="inbox-num">3</span>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-shopping-basket"></i>eCommerce</a>
-                        </li>
+                        
+                        
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-trophy"></i>Features
@@ -293,8 +307,8 @@
                                 <div class="setting-menu js-right-sidebar d-none d-lg-block">
                                     <div class="account-dropdown__body">
                                         <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-account"></i>Account</a>
+                                            <a href="./editAcountadmin.php">
+                                                <i class="zmdi zmdi-account"></i>Edit Acount</a>
                                         </div>
                                         <div class="account-dropdown__item">
                                             <a href="#">

@@ -1,4 +1,4 @@
-<?php require('./config.php');  ?>
+<?php require('../config.php');  ?>
 <?php
 include('./includes/header.php');
 ?>

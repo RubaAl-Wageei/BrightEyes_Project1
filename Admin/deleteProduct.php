@@ -1,6 +1,6 @@
 <?php
 
- require('./config.php');
+ require('../config');
    if(isset($_GET['id'])){
        $id=$_GET['id'];
        $db = crud::deleteProduct($id);

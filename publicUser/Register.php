@@ -58,7 +58,7 @@ if(isset($_POST['submit'])){
         $phone = $_POST['phoneNumber'];
         $three=1;
     } else {
-        $error_phone = "The Phone Number Should be Contain 14 digits"."<br>";
+        $error_phone = "The Phone Number Should be Contain 10 digits"."<br>";
     }
 
     if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/", $_POST['password']) && !empty($_POST['password'])){

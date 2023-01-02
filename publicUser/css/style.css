@@ -1799,7 +1799,7 @@ ol {
 }
 
 .product__details__button ul {
-	float: left;
+	/* float: left; */
 }
 
 .product__details__button ul li {
@@ -1848,7 +1848,7 @@ ol {
 	font-weight: 600;
 	color: #111111;
 	width: 150px;
-	float: left;
+	/* float: left; */
 }
 
 .product__details__widget ul li .stock__checkbox {
@@ -3143,6 +3143,7 @@ ol {
 .contact__map iframe {
 	width: 100%;
 }
+
 
 /*--------------------------------- Responsive Media Quaries -----------------------------*/
 

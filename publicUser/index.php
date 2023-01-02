@@ -15,46 +15,7 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="col-lg-6">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="img/categories/category-2.jpg">
-                            <div class="categories__text">
-                                <h4>Men’s fashion</h4>
-                                <p>358 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="img/categories/category-3.jpg">
-                            <div class="categories__text">
-                                <h4>Kid’s fashion</h4>
-                                <p>273 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="img/categories/category-4.jpg">
-                            <div class="categories__text">
-                                <h4>Cosmetics</h4>
-                                <p>159 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6 col-sm-6 p-0">
-                        <div class="categories__item set-bg" data-setbg="img/categories/category-5.jpg">
-                            <div class="categories__text">
-                                <h4>Accessories</h4>
-                                <p>792 items</p>
-                                <a href="#">Shop now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div> -->
+   
         </div>
     </div>
 </section>
@@ -66,7 +27,7 @@
         <div class="row">
             <div class="col-lg-4 col-md-4">
                 <div class="section-title">
-                    <h4>Discount</h4>
+                    <h4>Huge Discounts here !</h4>
                 </div>
             </div>
             <!-- <div class="col-lg-8 col-md-8">
@@ -80,37 +41,24 @@
                 </ul>
             </div> -->
         </div>
+      
+
+        <?php 
+
+       $data = crud::selectProduct();
+
+   ?>
+       
+      
+       
         <div class="row property__gallery">
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+            <?php foreach($data as $value): ?>
+                <?php if($value['discount']== 0){continue;}?>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women">  
                 <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/Cat-eye-sunglass1.jpg">
+                    <div class="product__item__pic set-bg" data-setbg=<?php echo $value['image']?>>
                         <div class="label">Sale</div>
                         <!-- <div class="label new">New</div> -->
-                        <ul class="product__hover">
-                            <li><a href="img/product/Cat-eye-sunglass1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Page <br>
-                            Cat Eye Tortoise Eyeglasses
-                            </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">25.00 JD<span>32.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix men">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/Cat-eye-sunglass3.jpg">
-                        <div class="label">Sale</div>
                         <ul class="product__hover">
                             <li><a href="img/product/Cat-eye-sunglass3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
                             <li><a href="#"><span class="icon_heart_alt"></span></a></li>
@@ -118,170 +66,19 @@
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#">Hannah<br>
-                            Cat Eye Champagne Eyeglasses
-                        </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">25.00 JD<span>30.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix accessories">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/KIDS-EYEGLASSES1.jpg">
-                        <div class="label">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="img/product/KIDS-EYEGLASSES1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Anna<br>
-                            Round Pink Eyeglasses
+                        <h6><a href="#"><?php echo $value['productName'] ?> <br>
+                            Cat Eye Tortoise Eyeglasses
                             </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">15.00 JD<span>23.00 JD</span></div>
+                  
+                        <div class="product__price"><?php echo $value['new_Price'];?><span><?php echo $value['price'];?></span></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/KIDS-EYEGLASSES2.jpg">
-                        <div class="label">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="img/product/KIDS-EYEGLASSES2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Joanna<br>
-                            Rectangle Green Eyeglasses
-                            </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">25.00 JD<span>40.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix kid">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/MIRRORED-SUNGLASSES1.jpg">
-                        <div class="label">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="img/product/MIRRORED-SUNGLASSES1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Muskogee<br>
-                            Horn Champagne Sunglasses
-                            </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">30.00 JD<span>45.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/MIRRORED-SUNGLASSES2.jpg">
-                        <div class="label sale">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="img/product/MIRRORED-SUNGLASSES2.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Oswego<br>
-                            Aviator Golden Sunglasses
-                            </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">49.00 JD<span>59.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/MIRRORED-SUNGLASSES4.jpg">
-                        <div class="label">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="img/product/MIRRORED-SUNGLASSES4.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Marlowe<br>
-                            Cat Eye Rose Gold(Rose Gold mirror-coating) Sunglasses
-                            </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">59.00 JD<span>69.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women men kid accessories cosmetic">
-                <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg="img/product/MIRRORED-SUNGLASSES5.jpg">
-                        <div class="label">Sale</div>
-                        <ul class="product__hover">
-                            <li><a href="img/product/MIRRORED-SUNGLASSES5.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                        </ul>
-                    </div>
-                    <div class="product__item__text">
-                        <h6><a href="#">Sheila<br>
-                            Horn Champagne Sunglasses
-                            </a></h6>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                        </div>
-                        <div class="product__price">49.00 JD<span>59.00 JD</span></div>
-                    </div>
-                </div>
-            </div>
+            <?php endforeach; ?>
+
+
+
+
         </div>
     </div>
 </section>
@@ -653,4 +450,6 @@
     </div>
 </div>
 <!-- Instagram End -->
+
+
 <?php include('./include/footer.php'); ?>

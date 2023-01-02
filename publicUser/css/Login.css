@@ -1,0 +1,128 @@
+
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+/* #div{
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255,0.6);
+    box-shadow: 5px 3px 8px #888888;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 30px;
+} */
+
+h2{
+    text-align: center;
+    color: crimson;
+}
+
+input{
+    width: 50%;
+    padding: 7px;
+    border-radius: 15px;
+    margin: 0 auto;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+#submit{
+    background-color:crimson;
+    color: azure;
+    border: none;
+    cursor: pointer;
+}
+
+#submit:hover{
+   background-color: rgba(220, 20, 60,0.5);
+   transform: scale(1.1);
+   transition: 0.7s ease;
+}
+
+
+/* ffffffffffff */
+*{
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    /* background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.20)) ,url("./download.jfif"); */
+    background-position-y: center;
+    background-size: cover;
+    background-repeat: repeat-y;
+
+    
+}
+.container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 35%;
+    height: 50vh;
+    background-color: white;
+    margin: 5vh auto;
+    padding: 4vh;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255,0.6);
+    box-shadow: 5px 3px 8px #888888;
+
+}
+form {
+    display: flex;
+    flex-direction: column;
+}
+#phone{
+    width: 100%;
+    padding: 9px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+input[type=submit]:hover {
+    opacity: 0.8;
+}
+.error{
+    display: none;
+    color: red;
+    font-size: 8px;
+    margin-top: -4px;
+}
+.container1 form p{
+    color: red;
+    font-size: 0.75em;
+    margin: 0 0 0 6px;
+    text-align: center;
+}
+#para {
+    color: red;
+    font-weight: bold;
+    font-size: 0.8em;  
+}
+#para a{
+        text-decoration: none;
+
+}
+#section{
+    height: 70vh;
+    width: 100%;
+    /* background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.20)) ,url("../img/mZOoc6C.jpg"); */
+background-color: black;
+}
+@media screen and (max-width: 960px) {
+    .container {
+        width: 90%;
+    }
+  }
+
+@media screen and (max-width: 600px) {
+    .container {
+        width: 100%;
+    }
+  }

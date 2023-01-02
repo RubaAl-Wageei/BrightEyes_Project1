@@ -69,19 +69,19 @@ $db = crud::selectProductt();
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a href="shop.php?id=2">Sunglass Chain</a>
+                                            <a href="shop.php?id=3">Sunglass Chain</a>
                                         </div>
                                     
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a href="shop.php?id=3">Kids Eyeglasses</a>
+                                            <a href="shop.php?id=4">Kids Eyeglasses</a>
                                         </div>
                                   
                                     </div>
                                     <div class="card">
                                         <div class="card-heading">
-                                            <a href="shop.php?id=4">Mirrored Sunglasses</a>
+                                            <a href="shop.php?id=2">Mirrored Sunglasses</a>
                                         </div>
                                  
                                     </div>
@@ -127,7 +127,7 @@ $db = crud::selectProductt();
 
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
-                                <a href="./productDetails.php?pro_id=<?php echo $value['id']?>"><div class="product__item__pic set-bg" data-setbg="<?php echo $value['image']?>"></a>
+                                <a href="./productDetails.php?pro_id=<?php echo $value['id']?>"><div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>"></a>
                                     <ul class="product__hover">
                                         <li><a href="img/shop/sunglass-cases5.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
                                         <li><a href="#"><span class="icon_bag_alt"></span></a></li>

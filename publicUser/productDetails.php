@@ -106,13 +106,13 @@
                     <div class="product__details__pic">
                         <div class="product__details__pic__left product__thumb nice-scroll">
                             <a class="pt active" href="#product-1">
-                                <img src="<?php echo $value['image']?>" alt="">
+                                <img src="../image/<?php echo $value['image']?>" alt="">
                             </a>
             
                         </div>
                         <div class="product__details__slider__content">
                             <div class="product__details__pic__slider owl-carousel">
-                                <img data-hash="product-1" class="product__big__img" src="<?php echo $value['image']?>" alt="">
+                                <img data-hash="product-1" class="product__big__img" src="../image/<?php echo $value['image']?>" alt="">
                   
                             </div>
                         </div>
@@ -142,8 +142,7 @@
                                 </div>
                             </div> -->
                             <button type="submit" name="add" class="cart-btn">Add to Cart </button>
-                    <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
-                           <!-- <a href="./productDetails.php?id=<?php echo $value['id'];?>&pro_id=<?php echo $value['id']?>" class="cart-btn"><span class="icon_bag_alt "></span> Add to cart</a> -->
+                            <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
                             <ul>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                             </ul>
@@ -271,7 +270,7 @@ It was a dark and stormy night...
 <?php if ($i<=4):?>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="<?php echo $value['image']?>">
+                        <div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>">
                             <ul class="product__hover">
                                 <li><a href="img/product/related/Cat-eye-sunglass4.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
                                 <!-- <li><a href="#"><span class="icon_heart_alt"></span></a></li> -->

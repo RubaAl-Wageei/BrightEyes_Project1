@@ -37,18 +37,7 @@ if(isset($_SESSION['cart'])){
             $insert=crud::connect()->prepare($sql);
             $insert->execute();
             }
-    }
-// $sql="SELECT order_id
-// FROM orders.COLUMNS
-// WHERE TABLE_SCHEMA = '{orders}'
-// AND TABLE_NAME ='{your_table_name}'
-// ORDER BY ORDINAL_POSITION DESC
-// LIMIT 1;"
-
-
-    // for($i=1 ; $i<count($item_array_id); $i++){
-       
-           
+    }           
         unset($_SESSION['cart']);
         unset($_SESSION['totalPrice']);
         echo "<script>window.location='./index.php'</script>";

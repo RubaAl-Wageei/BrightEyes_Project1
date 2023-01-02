@@ -40,14 +40,14 @@ textarea {
 </style> -->
 </head>
 <body>
-    <?php
+<?php
     if(isset($_SESSION['cart'])){
             $count=count($_SESSION['cart']);
 
     }else{
         $count=0;
     }  
- ?>
+?>
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -84,7 +84,7 @@ textarea {
             <div class="row">
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
-                        <a href="./index.php"><img src="./img/logo_1.png" alt="" style="width:50px"></a> <?php //----------------logo ?>
+                        <a href="./index.php"><img src="./img/logo_1.png" alt="" style="width:50px"></a> 
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">

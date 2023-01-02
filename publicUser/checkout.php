@@ -3,7 +3,10 @@
 <?php require('../config.php');?>
 
 <?php
-
+if(!isset($_SESSION['name'])){
+    echo "<script>window.location='login.php'</script>";
+ };
+ 
 
 $dd=crud::selectProductt();
 // echo $_SESSION['totalPrice'];
@@ -48,7 +51,7 @@ if(isset($_SESSION['cart'])){
            
         unset($_SESSION['cart']);
         unset($_SESSION['totalPrice']);
-
+        echo "<script>window.location='./index.php'</script>";
         }
     // }
 

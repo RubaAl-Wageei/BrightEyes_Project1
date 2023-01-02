@@ -45,7 +45,7 @@
             // echo "<script>window.location='./product.php'</script>";
     
         } 
-                print_r($_SESSION['cart']);
+                // print_r($_SESSION['cart']);
 
     }
   
@@ -66,7 +66,7 @@
     $comments->bindValue(':id', $_SESSION['details_id']);
     $comments->execute();
     $data_comment= $comments->fetchAll(PDO::FETCH_ASSOC);
-    print_r($data_comment);
+    // print_r($data_comment);
     $reviewe=count($data_comment);
 
     //------------------------------category product
@@ -132,7 +132,13 @@
                             <span>( <?php echo $reviewe ?> reviews )</span>
                         </div>
                         <!-- <div class="product__details__price">25.00 JD<span>32.00 JD</span></div> -->
-                        <div class="product__details__price"><?php echo $value['price'];?> JD</div>
+                        <?php if($value['discount']== 0){?>
+                            <div class="product__details__price"><?php echo $value['price'];?> JD</div>
+                            <?php }else{?>
+                                <div class="product__price " ><span style="color:red;font-size:1.25em;"><?php echo $value['new_Price'].".00 JD";?></span>  
+                                    
+                                <s><?php echo $value['price'].".00 JD";?></s></div>
+                                <?php }?> 
                         <p><?php echo $value['description']?></p>
                         <div class="product__details__button">
                             <!-- <div class="quantity">

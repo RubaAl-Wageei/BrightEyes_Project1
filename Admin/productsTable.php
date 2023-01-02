@@ -26,7 +26,7 @@ include('./includes/header.php');
                                     </div>
                                     <div class="table-data__tool-right">
                                         <form method="post">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="productsAdd.php">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="productsAdd.php" style="color:white;">
                                             <i class="zmdi zmdi-plus"></i>add item</a></button>
                                         </form>
                                     </div>

@@ -97,12 +97,12 @@ $two=1;
 } else {
     $error_email= 'Your email is invalid'."<br>";
 }
-if(preg_match("/^[0-9\-\+]{14}$/",$_POST['number'])&&!empty($_POST['number'])){
+if(preg_match("/^[0-9\-\+]{10}$/",$_POST['number'])&&!empty($_POST['number'])){
     $number = $_POST['number'];
     $three=1;
 
 } else {
-    $error_number= 'phone number Should be 14 digits'."<br>";
+    $error_number= 'phone number Should be 10 digits'."<br>";
 }
 if(preg_match(("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/"), $_POST['password'])&&!empty($_POST['password'])){
 $password = $_POST['password']; 

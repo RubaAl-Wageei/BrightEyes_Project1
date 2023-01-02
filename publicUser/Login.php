@@ -25,6 +25,7 @@
                 $_SESSION['email']=$d["Email"];
                 $_SESSION['pass']=$d["Password"];
                 $_SESSION['role']=$d["Role"];
+                $_SESSION['image']=$d["image"];
                 $_SESSION['id']=$d["id"];
                 $_SESSION['validate']=true;
                 echo "<script>window.location='index.php'</script>";

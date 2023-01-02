@@ -41,6 +41,7 @@ textarea {
 </head>
 <body>
 <?php
+
     if(isset($_SESSION['cart'])){
             $count=count($_SESSION['cart']);
 
@@ -68,17 +69,20 @@ textarea {
         </ul>
         <div class="offcanvas__logo">
             <a href="./index.php"><img src="img/logo_1.png" alt="logo" style="width:50px"></a>
-            <a href="./index.html"><img src="../img/logo_1.png" alt=""></a>
         </div>
         
         <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__auth">
-            <a href="./Register.php">Login</a>
-            <a href="./Login.php">Register</a>
-            
-            <a href="./user_prof.html">Edit Profile</a>
-            
-        </div>
+                            <?php if(isset($_SESSION['name'])) :?>
+                            <div class="header__right__auth">
+                                <a href="./user_prof.php" style="font-size:1em">Account</a>  
+                            </div>
+                            <?php endif ?>
+                            <?php if(!isset($_SESSION['name'])) :?>
+                            <div class="header__right__auth">
+                                <a href="./Login.php" style="font-size:1em">Login</a>
+                                <a href="./Register.php" style="font-size:1em">Register</a>
+                            </div>
+                            <?php endif ?>
     </div>
     <!-- Offcanvas Menu End -->
 
@@ -96,18 +100,15 @@ textarea {
                     <nav class="header__menu">
                         <ul>
                             <li><a href="./index.php">Home</a></li>
-                            <li><a href="./shop.php">ٍShop</a></li>
                             <li><a href="#">Categories</a>
                                 <ul class="dropdown">
                                         <li><a href="./shop.php?id=1">Cat Eye Glass</a></li>
-                                        <li><a href="./shop.php?id=3">Kid's Eyeglasses</a></li>
+                                        <li><a href="./shop.php?id=4">Kid's Eyeglasses</a></li>
                                         <li><a href="./shop.php?id=2">Mirrored Sunglasses</a></li>
-                                        <li><a href="./shop.php?id=4">Sunglass Cases</a></li>
-                                        <li><a href="./shop.php?id=5">Sunglass chain</a></li>
+                                        <li><a href="./shop.php?id=5">Sunglass Cases</a></li>
+                                        <li><a href="./shop.php?id=3">Sunglass chain</a></li>
                                  </ul>   
-                                </li>     
-                            <!-- <li><a href="#">Men’s</a></li> -->
-                         
+                                </li>                              
                             <li><a href="./shop.php">SHOP</a></li>
                             <li><a href="./contact.php">Contact</a></li>
                             <li><a href="./about.php">About us</a></li>
@@ -116,10 +117,27 @@ textarea {
                 </div>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <div class="header__right__auth">
-                            <a href="./Login.php">Login</a>
-                            <a href="./Register.php">Register</a>
-                        </div>
+                        <?php if(isset($_SESSION['name'])) :?>
+                            <div class="header__right__auth">
+                                <a href="./user_prof.php" style="font-size:1em">Account</a>  
+                                <a href="./index.php?logout=<?php echo $_SESSION['id']; ?>" style="font-size:1em">Logout</a>  
+                            </div>
+                            <?php endif ?>
+                            <?php
+
+
+                            if(isset($_GET['logout'])){
+                                unset($_SESSION['id']);
+                                session_destroy();
+                                echo "<script>window.location='index.php'</script>";}; ?>
+                            <?php if(!isset($_SESSION['name'])) :?>
+                            <div class="header__right__auth">
+                                <a href="./Login.php" style="font-size:1em">Login</a>
+                                <a href="./Register.php" style="font-size:1em">Register</a>
+                            </div>
+                            <?php endif ?>
+                        
+
                         <ul class="header__right__widget">
                             <!-- <li><span class="icon_search search-switch"></span></li>
                             <li><a href="#"><span class="icon_heart_alt"></span>

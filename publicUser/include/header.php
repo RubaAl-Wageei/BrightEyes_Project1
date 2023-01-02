@@ -74,6 +74,9 @@ textarea {
         <div class="offcanvas__auth">
             <a href="./Register.php">Login</a>
             <a href="./Login.php">Register</a>
+            
+            <a href="./user_prof.html">Edit Profile</a>
+            
         </div>
     </div>
     <!-- Offcanvas Menu End -->

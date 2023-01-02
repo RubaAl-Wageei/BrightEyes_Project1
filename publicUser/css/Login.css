@@ -1,4 +1,15 @@
+/* 
+body {
 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image:linear-gradient(rgba(87, 87, 87,0.5),rgb(87, 87, 87,0.5)), url("../img/background_login6.jpg");
+    background-repeat: no-repeat;
+    background-position:bottom;
+    background-size: cover;
+}
 
 form {
     display: flex;
@@ -40,7 +51,7 @@ input{
    background-color: rgba(220, 20, 60,0.5);
    transform: scale(1.1);
    transition: 0.7s ease;
-}
+} */
 
 
 /* ffffffffffff */
@@ -52,7 +63,7 @@ body {
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
-    /* background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.20)) ,url("./download.jfif"); */
+     background-image:linear-gradient(rgba(87, 87, 87,0.9),rgb(87, 87, 87,0.6)), url("../img/background_login7.jpg");
     background-position-y: center;
     background-size: cover;
     background-repeat: repeat-y;
@@ -69,7 +80,7 @@ body {
     margin: 5vh auto;
     padding: 4vh;
     border-radius: 15px;
-    background-color: rgba(255, 255, 255,0.6);
+    background-color: rgba(255, 255, 255,0.7);
     box-shadow: 5px 3px 8px #888888;
 
 }
@@ -113,9 +124,10 @@ input[type=submit]:hover {
     height: 70vh;
     width: 100%;
     /* background-image:linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.20)) ,url("../img/mZOoc6C.jpg"); */
-background-color: black;
+    background-color: black;
 }
-@media screen and (max-width: 960px) {
+
+/* @media screen and (max-width: 960px) {
     .container {
         width: 90%;
     }
@@ -125,4 +137,4 @@ background-color: black;
     .container {
         width: 100%;
     }
-  }
+  } */

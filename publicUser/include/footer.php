@@ -30,13 +30,13 @@
                     </div>
                     <div class="col-lg-4 col-md-8 col-sm-8">
                         <div class="footer__newslatter">
-                            <h6>NEWSLETTER</h6>
+                            <h6>Our social media</h6>
                            
                             <div class="footer__social"  style="padding: right 50px;">
-                                <!-- <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.facebook.com/profile.php?id=100089033536223" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <!-- <a href="#"><i class="fa fa-twitter"></i></a> -->
+                                <a href="https://www.youtube.com/watch?v=aWTOxz501CM" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                                <!-- <a href="#"><i class="fa fa-instagram"></i></a>
                                 <a href="#"><i class="fa fa-pinterest"></i></a> -->
                             </div>
                         </div>

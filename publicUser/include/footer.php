@@ -5,7 +5,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-7">
                         <div class="footer__about">
                             <div class="footer__logo">
-                                <a href="./index.php"><img src="img/logo_1.png" alt="logo" style="width:140px"></a> <?php //----------------logo ?>
+                                <a href="./index.php"><img src="./img/logo_1.png" alt="" style="width:140px"></a> <?php //----------------logo ?>
                             </div>
                             <p>Unique sunglasses say unique things about those who wear them, so your personal style should match the message you want to send out to the world.</p>
                             <!-- <div class="footer__payment">

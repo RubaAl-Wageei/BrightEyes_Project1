@@ -16,7 +16,7 @@
                             <div class="table-data__tool">
 
                                 <div class="table-data__tool-right">
-                                    <a href="http://localhost/BrightEyes_Project/admin/addCategory.php">
+                                    <a href="http://localhost/BrightEyes_Project1/Admin/addCategory.php">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small"><i class="zmdi zmdi-plus"></i>add category</button>
                                     </a> 
                                 </div>

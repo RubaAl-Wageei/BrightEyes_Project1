@@ -1,5 +1,5 @@
-<?php include('./include/header.php');?>
-<?php require('../bublic/config.php'); ?>
+<?php include('./includes/header.php');?>
+<?php require('../config.php'); ?>
 <?php
 $id=$_GET['id'];
 
@@ -14,18 +14,23 @@ if(isset($_POST['submit'])){
     $email=$_POST['email'];
     $number=$_POST['number'];
     $password=$_POST['password'];
+    $role=$_POST['select'];
+
   
 
     $one=0;
     $two=0;
     $three=0;
     $four=0;
+    $five=0;
+    $six=0;
   
     $error_name="";
     $error_email="";
     $error_number="";
     $error_password="";
     $email_exist="";
+    $role_role="";
     $succses="";
 
 //==================
@@ -60,12 +65,19 @@ $two=1;
 } else {
     $error_email= 'Your email is invalid'."<br>";
 }
-if(preg_match("/^[0-9\-\+]{14}$/",$_POST['number'])&&!empty($_POST['number'])){
+if(preg_match("/^[0-9\-\+]{10}$/",$_POST['number'])&&!empty($_POST['number'])){
     $number = $_POST['number'];
     $three=1;
 
 } else {
     $error_number= 'phone number Should be 14 digits'."<br>";
+}
+if(preg_match("/^[0-1\-\+]{1}$/",$_POST['role'])&&!empty($_POST['role'])){
+    $role = $_POST['role'];
+    $six=1;
+
+} else {
+    $error_role= 'role Should be 1 digits (0 or 1)'."<br>";
 }
 if(preg_match(("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/"), $_POST['password'])&&!empty($_POST['password'])){
 $password = $_POST['password']; 
@@ -77,14 +89,17 @@ $error_password ='Your password is week'."<br>";
 
 
 if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
-    $db = crud::connect()->prepare("UPDATE  users SET FullName=:fname, Email=:email, Password=:pass,PhoneNumber=:phone WHERE id=:id");
+    $db = crud::connect()->prepare("UPDATE  users SET FullName=:fname, Email=:email, Password=:pass,PhoneNumber=:phone,Role=:role WHERE id=:id");
     $db->bindValue(':id' , $id);
     $db->bindValue(':fname' , $name);
     $db->bindValue(':email' , $email);
     $db->bindValue(':pass' , $password);
     $db->bindValue(':phone' , $number);
+    $db->bindValue(':role' , $role);
+
    
     $db -> execute();
+
     $succses=1;
 }else{
     // echo 'not Successfully'."<br>";
@@ -118,7 +133,10 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
                                                     </div>
                                                     <input type="text" id="username" name="name" placeholder="Username" class="form-control" value="<?php echo $data['FullName'];?>">
                                                 </div>
+                                            <?php if( !empty ($error_name) ){echo "<p>$error_name</p>"; }?>
+  
                                             </div>
+
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
@@ -126,7 +144,10 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
                                                     </div>
                                                     <input type="number" id="number" name="number" placeholder="number" class="form-control" value="<?php echo $data['PhoneNumber'];?>">
                                                 </div>
+                                            <?php if( !empty ($error_number) ){echo "<p>$error_number</p>"; }?>
+  
                                             </div>
+
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
@@ -134,13 +155,30 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
                                                     </div>
                                                     <input type="email" id="email" name="email" placeholder="Email" class="form-control" value="<?php echo $data['Email'];?>">
                                                 </div>
+                                            <?php if( !empty ($error_email) ){echo "<p>$error_email</p>"; }?>
+                                            <?php if( !empty ($email_exist) ){echo "<p>$email_exist</p>"; }?>    
                                             </div>
+                                            
                                             <div class="form-group">
                                                 <div class="input-group">
                                                     <div class="input-group-addon">
                                                         <i class="fa fa-asterisk"></i>
                                                     </div>
                                                     <input type="password" id="password" name="password" placeholder="Password" class="form-control">
+                                                </div>
+                                            <?php if( !empty ($error_password) ){echo "<p>$error_password</p>"; }?>
+    
+                                            </div>
+
+                                            <div class="row form-group">
+                                                <div class="col col-md-3">
+                                                    <label for="select" class=" form-control-label">Select (Admin or User)</label>
+                                                </div>
+                                                <div class="col-12 col-md-9">
+                                                    <select name="select" id="select" class="form-control">
+                                                        <option value="1">ADMIN</option>
+                                                        <option value="0"> USER</option>
+                                                    </select>
                                                 </div>
                                             </div>
                                             
@@ -152,4 +190,4 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
                                 </div>
                             </div>
                         </div>
-<?php include('./include/footer.php');?>
+<?php include('./includes/footer.php');?>

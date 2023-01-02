@@ -120,9 +120,9 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="product__details__text">
-                        <h3>Page
+                        <h3><?php echo $value['title']?>
                             
-                             <span><?php echo $value['name']?></span></h3>
+                             <span><?php echo $value['productName']?></span></h3>
                         <div class="rating">
                             <i class="fa fa-star"></i>
                             <i class="fa fa-star"></i>
@@ -267,8 +267,9 @@ It was a dark and stormy night...
                 </div> -->
                 <?php $i=1;?>
                 <?php foreach($data_category as $value):?> 
-<?php if ($i<=4):?>
-                <div class="col-lg-3 col-md-4 col-sm-6">
+                <?php if ($i<=4):?>
+                <div class="col-lg-4 col-md-4 col-sm-6">
+                    
                     <div class="product__item">
                         <div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>">
                             <ul class="product__hover">
@@ -278,8 +279,8 @@ It was a dark and stormy night...
                             </ul>
                         </div>
                         <div class="product__item__text">
-                            <h6><a href="#"><?php echo $value['name']?><br>
-                                Cat Eye Black/Golden Eyeglasses
+                            <h6><a href="#"><?php echo $value['title']?><br>
+                            <?php echo $value['productName']?>
                                 </a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>

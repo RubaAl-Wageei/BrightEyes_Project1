@@ -1,6 +1,6 @@
-<?php include('./include/header.php');?>
+<?php include('./includes/header.php');?>
 
-<?php require('../bublic/config.php'); ?>
+<?php require('../config.php'); ?>
 
 
 <!--user الخاص باستدعاء بيانات جدول ال  function   استدعاء ال  -->
@@ -76,7 +76,7 @@
                                                     <div class="table-data-feature" style="justify-content:center">
                                                       
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Delete">
-                                                        <a href="http://localhost/BrightEyes_Project/admin/deleteUser.php?id=<?php echo $value['id']; ?>" onclick="return confirm ('are you shure')" ><i class="zmdi zmdi-delete"></i></a>
+                                                        <a href="http://localhost/BrightEyes_Project1/Admin/deleteUser.php?id=<?php echo $value['id']; ?>" onclick="return confirm ('are you shure')" ><i class="zmdi zmdi-delete"></i></a>
                                                         </button>
                
                                                     </div>
@@ -91,4 +91,4 @@
                                     </table>
                                 </div>
                             </div>
-<?php include('./include/footer.php');?>
+<?php include('./includes/footer.php');?>

@@ -123,7 +123,9 @@ $db = crud::selectProductt();
                                 </div>
                             </div>
                         </div> -->
+                        <?php $i=1;?>
                         <?php foreach($data as $value):?> 
+                            <?php if ($i<=9):?>
 
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
@@ -134,7 +136,9 @@ $db = crud::selectProductt();
                                     </ul>
                                 </div>
                                 <div class="product__item__text">
-                                    <h6><a href="./productDetails.php?pro_id=<?php echo $value['id']?>"><?php echo $value['name']?></a></h6>
+                            <h6><a href="./productDetails.php?pro_id=<?php echo $value['id']?>"><?php echo $value['title']?><br>
+                            <?php echo $value['productName']?>
+                                </a></h6>
                                     <div class="rating">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -142,10 +146,13 @@ $db = crud::selectProductt();
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
                                     </div>
-                                    <div class="product__price"><?php echo $value['price']?></div>
+                                    <div class="product__price"><?php echo $value['price']?>JD</div>
                                 </div>
                             </div>
                         </div>
+                        <?php $i++;?>
+
+                        <?php  endif;?>
                         <?php  endforeach;?>
 <!-- 
                         <div class="col-lg-4 col-md-6">

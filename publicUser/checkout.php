@@ -174,7 +174,7 @@ if(isset($_SESSION['cart'])){
                                         
                                         <?php foreach($dd as $value) :?>
                                             <?php if (in_array($value['id'],$item_array_id)):?>
-                                        <li><?php echo $i?>. <?php echo $value['name']?> <span><?php echo $value['price']?> JD</span></li>
+                                        <li><?php echo $i?>. <?php echo $value['productName']?> <span><?php echo $value['price']?> JD</span></li>
                                         <!-- <li>02. Zip-pockets pebbled<br /> tote briefcase <span>170.00 JD</span></li>
                                         <li>03. Black jean <span>170.00 JD</span></li>
                                         <li>04. Cotton shirt <span>110.00 JD</span></li> -->

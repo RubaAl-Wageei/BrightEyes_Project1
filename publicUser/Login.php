@@ -10,7 +10,7 @@
     <?php 
     
     if(isset($_POST['submit'])){
-
+        $_SESSION['Validate'] = false;
         $email=$_POST['email'];
         $password=$_POST['password'];
         // $nowTimeStamp = date("Y-m-d H:i:s");
@@ -27,8 +27,8 @@
                 $_SESSION['pass']=$d["Password"];
                 $_SESSION['role']=$d["Role"];
                 $_SESSION['id']=$d["id"];
-                // $_SESSION['validate']=true;
-                header("location:./index.php");
+                $_SESSION['validate']=true;
+                echo "<script>window.location='index.php'</script>";
 
                  //add date last log in use now() function
                 // $sql="UPDATE  users SET  last_login =now() WHERE id=". $_SESSION['id'];

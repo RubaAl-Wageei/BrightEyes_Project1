@@ -1,14 +1,12 @@
-<?php if($value['discount']==0){ ?>
-    <?php }else{?>
-        <?php }?>
+
 
 
 <?php session_start();?>
-<?php require('./config.php');?>
+<?php require('../config.php');?>
 <?php include('./include/header.php'); ?>
 
 <?php 
-$db = crud::selectProductt();
+$dbd = crud::selectProductt();
 if(isset($_SESSION['cart'])) {
     $product_id=array_column($_SESSION['cart'], 'product_id');
 
@@ -23,20 +21,19 @@ if(isset($_GET['action'])){
         if($value['product_id'] == $id){
             unset($_SESSION['cart'][$key]);
             echo "<script>alert('you are shure')</script>";
-            echo "<script>window.location='cart.php'</script>";
 
         }
     }
    
 }
-if(isset($_POST['empty'])){
+// if(isset($_POST['empty'])){
    
         
-    unset($_SESSION['cart']);
-    header("location:./shop.php");
+//     unset($_SESSION['cart']);
+//     header("location:./shop.php");
   
   
-  }
+//   }
 
 ?>
 
@@ -73,7 +70,7 @@ if(isset($_POST['empty'])){
                             </thead>
                             <tbody>
                             <?php $total=0 ?>
-                            <?php foreach($db as $value):?>
+                            <?php foreach($dbd as $value):?>
                                 <?php if(in_array($value['id'],$product_id)):?>
 
                                 <tr>
@@ -104,6 +101,7 @@ if(isset($_POST['empty'])){
                                 <?php $total+=$value['price'];?>
                                 <?php endif;?>
                                 <?php endforeach;?>
+                                <?php $_SESSION['totalPrice']= $total;?>
                                 <!-- <tr>
                                     <td class="cart__product__item">
                                         <img src="img/shop-cart/cart2K4.jpg" alt="">
@@ -189,32 +187,32 @@ if(isset($_POST['empty'])){
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 col-sm-6">
-                    <div class="cart__btn update__btn">
+                    <!-- <div class="cart__btn update__btn">
                         <form action="" method="post">
                         <button type="submit" name="empty" ><span class="icon_loading">Update cart</span> </button>
 
                         </form>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
-                    <div class="discount__content">
+                    <!-- <div class="discount__content">
                         <h6>Discount codes</h6>
                         <form action="#">
                             <input type="text" placeholder="Enter your coupon code">
                             <button type="submit" class="site-btn">Apply</button>
                         </form>
-                    </div>
+                    </div> -->
                 </div>
                 <div class="col-lg-4 offset-lg-2">
                     <div class="cart__total__procced">
                         <h6>Cart total</h6>
                         <ul>
-                            <li>Subtotal <span><?php echo $total?> JD</span></li>
-                            <li>Total <span>222.00 JD</span></li>
+                            <!-- <li>Subtotal <span> JD</span></li> -->
+                            <li>Total <span><?php echo $total?> JD</span></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="./checkout.php" class="primary-btn">Proceed to checkout</a>
                     </div>
                 </div>
             </div>

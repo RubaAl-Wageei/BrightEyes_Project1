@@ -1,7 +1,58 @@
-
+<?php session_start();?>
 <?php include('./include/header.php'); ?>
+<?php require('../config.php');?>
+
+<?php
 
 
+$dd=crud::selectProductt();
+// echo $_SESSION['totalPrice'];
+if(isset($_SESSION['cart'])){
+    $item_array_id = array_column($_SESSION['cart'], 'product_id');
+
+};
+
+// session_unset();
+?>
+<?php 
+    if(isset($_POST['submit'])) {
+    $xx = $_SESSION['totalPrice'];
+    $sql="INSERT INTO orders (order_id, order_date, user_id, total_price) VALUES (NULL, now(), 1, '$xx');";
+    $con=crud::connect()->prepare($sql);
+    $con->execute();
+    $conn=crud::connect()->prepare("SELECT * FROM orders  ORDER BY order_id DESC");
+    $conn->execute();
+    $data=$conn->fetch(PDO::FETCH_ASSOC);
+    $last_id = $data['order_id'];
+    echo $last_id;
+     foreach($dd as $value){
+            if(in_array($value['id'],$item_array_id)){
+                $x=$value['id'];
+                $y=$value['price'];
+            $sql="INSERT INTO order_details (order_id, product_id, quantity, price) 
+            VALUES ('$last_id', '$x', '1', '$y')";
+            $insert=crud::connect()->prepare($sql);
+            $insert->execute();
+            }
+    }
+// $sql="SELECT order_id
+// FROM orders.COLUMNS
+// WHERE TABLE_SCHEMA = '{orders}'
+// AND TABLE_NAME ='{your_table_name}'
+// ORDER BY ORDINAL_POSITION DESC
+// LIMIT 1;"
+
+
+    // for($i=1 ; $i<count($item_array_id); $i++){
+       
+           
+        unset($_SESSION['cart']);
+        unset($_SESSION['totalPrice']);
+
+        }
+    // }
+
+?>
 
 
     <!-- Breadcrumb Begin -->
@@ -28,7 +79,7 @@
                     here to enter your code.</h6>
                 </div>
             </div>
-            <form action="#" class="checkout__form">
+            <form action="" class="checkout__form" method="post">
                 <div class="row">
                     <div class="col-lg-8">
                         <h5>Billing detail</h5>
@@ -118,21 +169,33 @@
                                             <span class="top__text">Product</span>
                                             <span class="top__text__right">Total</span>
                                         </li>
-                                        <li>01. Chain buck bag <span>300.00 JD</span></li>
-                                        <li>02. Zip-pockets pebbled<br /> tote briefcase <span>170.00 JD</span></li>
+                                        <?php $i=1;?>
+                                        <?php if(isset($item_array_id)) :?>
+                                        
+                                        <?php foreach($dd as $value) :?>
+                                            <?php if (in_array($value['id'],$item_array_id)):?>
+                                        <li><?php echo $i?>. <?php echo $value['name']?> <span><?php echo $value['price']?> JD</span></li>
+                                        <!-- <li>02. Zip-pockets pebbled<br /> tote briefcase <span>170.00 JD</span></li>
                                         <li>03. Black jean <span>170.00 JD</span></li>
-                                        <li>04. Cotton shirt <span>110.00 JD</span></li>
+                                        <li>04. Cotton shirt <span>110.00 JD</span></li> -->
+                                        <?php $i++?>
+                                        <?php endif; ?>
+                                        <?php endforeach; ?>
+                                        
                                     </ul>
+
+
+                                
                                 </div>
                                 <div class="checkout__order__total">
                                     <ul>
-                                        <li>Subtotal <span>750.00 JD</span></li>
-                                        <li>Total <span>750.00 JD
+                                        <!-- <li>Subtotal <span>750.00 JD</span></li> -->
+                                        <li>Total <span><?php  echo $_SESSION['totalPrice']; ?> JD
                                         </span></li>
                                     </ul>
-                                </div>
+                                </div><?php endif; ?>
                                 <div class="checkout__order__widget">
-                                    <label for="o-acc">
+                                    <!-- <label for="o-acc">
                                         Create an acount?
                                         <input type="checkbox" id="o-acc">
                                         <span class="checkmark"></span>
@@ -143,14 +206,14 @@
                                         Cheque payment
                                         <input type="checkbox" id="check-payment">
                                         <span class="checkmark"></span>
-                                    </label>
+                                    </label> -->
                                     <label for="paypal">
-                                        PayPal
+                                    Cash on delivery
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
                                 </div>
-                                <button type="submit" class="site-btn">Place oder</button>
+                                <button type="submit" class="site-btn" name="submit">Place oder</button>
                             </div>
                         </div>
                     </div>

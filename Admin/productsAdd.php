@@ -10,7 +10,9 @@ include('./includes/header.php');
     $price = $_POST['product-price'];
     $description = $_POST['product-description'];
     $category = $_POST['product-category'];
+ 
 
+     // i use this code to add image and make some validition on it 
      // image file
      $fileimagename =$_FILES['file'];
      $imagename=$fileimagename['name'];
@@ -31,6 +33,9 @@ include('./includes/header.php');
      }else{
          echo "the file extenyion is not supported";
      }
+
+
+     // Insert the products value in the table colums 
 
     $P=crud::connect()->prepare('INSERT INTO products(productName, price, image,  description, category) VALUE (:pName, :pPrice,:pImage, :pDescription, :pCategory)');
 
@@ -83,15 +88,6 @@ include('./includes/header.php');
                                                     <small class="help-block form-text"></small>
                                                 </div>
                                             </div>
-                                            <!-- <div class="row form-group">
-                                                <div class="col col-md-3">
-                                                    <label for="password-input" class=" form-control-label">Password</label>
-                                                </div>
-                                                <div class="col-12 col-md-9">
-                                                    <input type="password" id="password-input" name="password-input" placeholder="Password" class="form-control">
-                                                    <small class="help-block form-text">Please enter a complex password</small>
-                                                </div>
-                                            </div> -->
                                          
                                             <div class="row form-group">
                                                 <div class="col col-md-3">

@@ -13,7 +13,7 @@ include('./includes/header.php');
                         <div class="row">
                             <div class="col-lg-12">
 
-                            <h3 class="title-5 m-b-35">Products Table</h3>
+                            <h3 class="title-5 m-b-35">Orders Table</h3>
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
@@ -25,12 +25,12 @@ include('./includes/header.php');
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                     </div>
-                                    <div class="table-data__tool-right">
+                                    <!-- <div class="table-data__tool-right">
                                         <form method="post">
                                         <button class="au-btn au-btn-icon au-btn--green au-btn--small" ><a href="productsAdd.php" style="color:white;">
                                             <i class="zmdi zmdi-plus"></i>add item</a></button>
                                         </form>
-                                    </div>
+                                    </div> -->
                                 
                                 <!-- END DATA TABLE -->
                             </div>

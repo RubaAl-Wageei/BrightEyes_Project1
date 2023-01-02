@@ -70,7 +70,7 @@ if(preg_match("/^[0-9\-\+]{10}$/",$_POST['number'])&&!empty($_POST['number'])){
     $three=1;
 
 } else {
-    $error_number= 'phone number Should be 14 digits'."<br>";
+    $error_number= 'phone number Should be 10 digits'."<br>";
 }
 if(preg_match("/^[0-1\-\+]{1}$/",$_POST['role'])&&!empty($_POST['role'])){
     $role = $_POST['role'];

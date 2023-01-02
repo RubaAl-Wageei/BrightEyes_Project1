@@ -103,7 +103,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="images/icon/logo.png" alt="CoolAdmin">
+                                <img src="./images/BRIGHT-EYES ADMIN.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">

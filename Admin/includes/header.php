@@ -53,7 +53,7 @@
                         <?php echo "<img src='../image/{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
                     </div>
                     <h4 class="name"><?php echo $_SESSION['name'];?></h4>
-                    <a href="../login.php">Sign out</a>
+                    <a href="./login.php">Sign out</a>
                 </div>
                 <nav class="navbar-sidebar2">
                     <ul class="list-unstyled navbar__list">

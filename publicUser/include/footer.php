@@ -21,10 +21,10 @@
                         <div class="footer__widget">
                             <h6>Quick links</h6>
                             <ul>
-                                <li><a href="../index.php">Home</a></li>
-                                <li><a href="../">Categories</a></li>
-                                <li><a href="#">Shop</a></li>
-                                <li><a href="#">contact</a></li>
+                                <li><a href="./index.php">Home</a></li>
+                                <li><a href="./shop.php">Shop</a></li>
+                                <li><a href="./about.php">About us</a></li>
+                                <li><a href="./contact.php">contact</a></li>
                             </ul>
                         </div>
                     </div>

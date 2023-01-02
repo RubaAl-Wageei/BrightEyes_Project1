@@ -69,7 +69,7 @@ include('./includes/header.php');
                                                 <td><?php echo $i++;?></td>  
                                                 <td><?php echo $value['productName'];?></td>
                                                 <td><?php echo $value['price'];?></td> 
-                                                <td> <?php echo "<img src='{$value['image']}'style=\"width:100px\">"?></td>
+                                                <td> <?php echo "<img src='../image/{$value['image']}'style=\"width:100px\">"?></td>
                                                 <form method="post">
                                                 <td><a href="./discount2.php?id=<?php echo $value['id'];?>"><span>Add new</span></a></td>
                                                  </form>
@@ -135,7 +135,7 @@ include('./includes/header.php');
                                                 <td><?php echo $value['productName'];?></td>
                                                 <td><?php echo $value['price'];?></td>
                                                 <td><?php echo $value['new_Price'];?></td>
-                                                <td> <?php echo "<img src='{$value['image']}'style=\"width:100px\">"?></td>
+                                                <td> <?php echo "<img src='../image/{$value['image']}'style=\"width:100px\">"?></td>
                                                 <form method="post">
                                                 <td><a href="./discountRemove.php?id=<?php echo $value['id'];?>"><span>Remove Discount</span></a></td>
                                                  </form>

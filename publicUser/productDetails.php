@@ -53,16 +53,20 @@
     if (isset($_POST['submit'])){
         $product_id=$_SESSION['details_id'];
         $comment=$_POST['comment'];
-        // $user_id=$_SESSION['id'];
-        $sql="INSERT INTO comments (user_id, comment, comment_date, product_id) VALUES ('6', '$comment', current_timestamp(), ' $product_id');";
+        $user_id=$_SESSION['id'];
+        $sql="INSERT INTO comments (user_id, comment, comment_date, product_id) VALUES (' $user_id', '$comment', now(),  '$product_id');";
         $db=crud::connect()->prepare($sql);
+        // $db->bindValue(':id', $_SESSION['id']);
+        // $db->bindValue(':comment', $comment);
+        // $db->bindValue(':pro', $product_id);
+
         $db ->execute();
-        echo "succes";
+        // echo "succes";
     }
 
     //---------------------comment
     $comments=crud::selectComments();
-    $product_id='2';
+    // $product_id='2';
     $comments->bindValue(':id', $_SESSION['details_id']);
     $comments->execute();
     $data_comment= $comments->fetchAll(PDO::FETCH_ASSOC);
@@ -222,7 +226,9 @@
                     </div>
                 </div>
                 <?php  endforeach;?>
-                <form acton="" method="post">
+               
+                <?php if(isset($_SESSION['name'])):?>
+                    <form acton="" method="post">
                 <label for="story">write comment:</label>
                 <div >
 
@@ -231,8 +237,14 @@
                 </div >
                 <div style="display: flex; justify-content: center; align-items: center;">
                   <input type="submit" name="submit" style="color:white;background-color:red;badding:2px;border-radius:5px;border:none;font-size:1.5em">
-
                 </div>
+                <?php endif;?>
+                <?php if(!isset($_SESSION['name'])):?>
+                <!-- <div style="display: flex; justify-content: center; align-items: center;">
+                  <p>Plea</p>
+                </div> -->
+                <?php endif;?>
+              
                         </form>
                             </div>
                         </div>

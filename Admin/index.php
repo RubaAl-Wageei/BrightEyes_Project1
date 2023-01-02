@@ -6,7 +6,9 @@ if(isset($_SESSION['name'])){
    
     // echo "<h1>"."welcome " . $_SESSION['name'] ."</h1>" . "<br>";
 }else{
-    header("location:./login.php");
+    // header("location:http://localhost/BrightEyes_Project1/Admin/login.php");
+    echo "<script>window.location='login.php'</script>";
+
     exit();
 }
 ?>  

@@ -26,7 +26,7 @@ include('./includes/header.php');
                                     </div>
                                     <div class="table-data__tool-right">
                                         <form method="post">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="productsAdd.php">
+                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="productsAdd.php" style="color:white;">
                                             <i class="zmdi zmdi-plus"></i>add item</a></button>
                                         </form>
                                     </div>
@@ -59,7 +59,7 @@ include('./includes/header.php');
                                                 <td><?php echo $value['productName'];?></td>
                                                 <td><?php echo $value['price'];?></td> 
                                                 <td> <?php echo "<img src='../image/{$value['image']}'style=\"width:150px\">"?></td>
-                                                <td><?php echo $value['description'];?></td> 
+                                                <td  style="border:none;overflow-x:scroll;"><p style="width:200px;"><?php echo $value['description'];?></p></td> 
                                                 <td><?php echo $value['category'];?></td> 
                                                 <form method="post">
                                                 <td><a href="./productsEdit.php?id=<?php echo $value['id'];?>"><span>Edit</span></a></td>

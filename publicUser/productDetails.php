@@ -45,7 +45,7 @@
             // echo "<script>window.location='./product.php'</script>";
     
         } 
-                print_r($_SESSION['cart']);
+                // print_r($_SESSION['cart']);
 
     }
   
@@ -53,20 +53,24 @@
     if (isset($_POST['submit'])){
         $product_id=$_SESSION['details_id'];
         $comment=$_POST['comment'];
-        // $user_id=$_SESSION['id'];
-        $sql="INSERT INTO comments (user_id, comment, comment_date, product_id) VALUES ('6', '$comment', current_timestamp(), ' $product_id');";
+        $user_id=$_SESSION['id'];
+        $sql="INSERT INTO comments (user_id, comment, comment_date, product_id) VALUES (' $user_id', '$comment', now(),  '$product_id');";
         $db=crud::connect()->prepare($sql);
+        // $db->bindValue(':id', $_SESSION['id']);
+        // $db->bindValue(':comment', $comment);
+        // $db->bindValue(':pro', $product_id);
+
         $db ->execute();
-        echo "succes";
+        // echo "succes";
     }
 
     //---------------------comment
     $comments=crud::selectComments();
-    $product_id='2';
+    // $product_id='2';
     $comments->bindValue(':id', $_SESSION['details_id']);
     $comments->execute();
     $data_comment= $comments->fetchAll(PDO::FETCH_ASSOC);
-    print_r($data_comment);
+    // print_r($data_comment);
     $reviewe=count($data_comment);
 
     //------------------------------category product
@@ -132,7 +136,13 @@
                             <span>( <?php echo $reviewe ?> reviews )</span>
                         </div>
                         <!-- <div class="product__details__price">25.00 JD<span>32.00 JD</span></div> -->
-                        <div class="product__details__price"><?php echo $value['price'];?>JD</div>
+                        <?php if($value['discount']== 0){?>
+                            <div class="product__details__price"><?php echo $value['price'];?> JD</div>
+                            <?php }else{?>
+                                <div class="product__price " ><span style="color:red;font-size:1.25em;"><?php echo $value['new_Price'].".00 JD";?></span>  
+                                    
+                                <s><?php echo $value['price'].".00 JD";?></s></div>
+                                <?php }?> 
                         <p><?php echo $value['description']?></p>
                         <div class="product__details__button">
                             <!-- <div class="quantity">
@@ -141,7 +151,7 @@
                                     <input type="text" value="1">
                                 </div>
                             </div> -->
-                            <button type="submit" name="add" class="cart-btn">Add to Cart </button>
+                            <button type="submit" name="add" class="cart-btn" style="border:none;">Add to Cart </button>
                             <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
                             <ul>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
@@ -187,7 +197,7 @@
                                 <h6>Description</h6>
                                 <p>
                                     Page Cat Eye glasses are made polished metal and superior TR90 material. Featured with pearl decorated temple arms hollowed-out frames, it is a good choice for most of women in all collections. Blue blocker lenses and tinted lenses both are available.
-                                    .</p>
+                                    </p>
                       
                             </div>
                 
@@ -203,7 +213,7 @@
 
                 <div class="blog__comment__item">
                     <div class="blog__comment__item__pic">
-                        <img src="./img/<?php echo $value['image'];?>" alt="" style="width:75px">
+                        <img src="../image/<?php echo $value['image'];?>" alt="" style="width:75px">
                     </div>
                     <div class="blog__comment__item__text">
                         <h6><?php echo $value['FullName'];?></h6>
@@ -216,15 +226,26 @@
                     </div>
                 </div>
                 <?php  endforeach;?>
-                <form acton="" method="post">
+               
+                <?php if(isset($_SESSION['name'])):?>
+                    <form acton="" method="post">
                 <label for="story">write comment:</label>
+                <div >
 
-<textarea id="story" name="comment"
-          rows="5" cols="33">
-It was a dark and stormy night...
-</textarea>
-<input type="submit" name="submit">
-</form>
+                    <textarea id="story" name="comment"rows="5" cols="33" style="width:100%;">Comment...
+                    </textarea>
+                </div >
+                <div style="display: flex; justify-content: center; align-items: center;">
+                  <input type="submit" name="submit" style="color:white;background-color:red;badding:2px;border-radius:5px;border:none;font-size:1.5em">
+                </div>
+                <?php endif;?>
+                <?php if(!isset($_SESSION['name'])):?>
+                <!-- <div style="display: flex; justify-content: center; align-items: center;">
+                  <p>Plea</p>
+                </div> -->
+                <?php endif;?>
+              
+                        </form>
                             </div>
                         </div>
                     </div>

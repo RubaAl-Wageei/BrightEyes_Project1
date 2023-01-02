@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
     if(in_array($email , $email_check)){
         $email_exist = "This Email Is Exist";
     } else {
-        $sex=1;
+        $six=1;
     }
     // Regex name , email , phoneNumber , password and repassword
     if(preg_match("/^[A-Z a-z]+$/", $_POST['name']) && !empty($_POST['name'])){
@@ -58,7 +58,7 @@ if(isset($_POST['submit'])){
         $phone = $_POST['phoneNumber'];
         $three=1;
     } else {
-        $error_phone = "The Phone Number Should be Contain 14 digits"."<br>";
+        $error_phone = "The Phone Number Should be Contain 10 digits"."<br>";
     }
 
     if(preg_match("/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,20}$/", $_POST['password']) && !empty($_POST['password'])){
@@ -140,8 +140,8 @@ if(isset($_POST['submit'])){
                 ?>
                 <br>
                 <input type="submit" name="submit" value="Register" id="submit">
-            
-            <p id="para">Do you have an account?<a href="./login.php" >Login</a></p>
+                <br>
+            <p id="para">Do you have an account?<a href="./login.php" > <span>Login </span> </a></p>
             </div>
         </form>
     </div> 

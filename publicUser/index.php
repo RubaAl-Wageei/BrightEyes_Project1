@@ -1,3 +1,4 @@
+<?php session_start();?>
 <?php include('./include/header.php'); ?>
 <?php require('../config.php');?>
 
@@ -11,7 +12,7 @@
                     <div class="categories__text">
                         <h1>BRIGHT EYES</h1>
                         <p>We invite you to continue your shopping experience on our Bright eyes. Discover the premier shopping destination for the top brands, latest trends, and exclusive styles of high quality fashion and performance sunglasses. Your perfect new pair of shades is waiting for you.</p>
-                        <a href="./shop.html">Shop now</a>
+                        <a href="./shop.php">Shop now</a>
                     </div>
                 </div>
             </div>

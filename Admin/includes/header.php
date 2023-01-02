@@ -44,13 +44,13 @@
         <aside class="menu-sidebar2">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo-white.png" alt="Cool Admin" />
+                    <img src="./images/RIGHT-EYES.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
                     <div class="image img-cir img-120">
-                        <?php echo "<img src='{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
+                        <?php echo "<img src='../image/{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
                     </div>
                     <h4 class="name"><?php echo $_SESSION['name'];?></h4>
                     <a href="../login.php">Sign out</a>
@@ -73,10 +73,10 @@
                                     <a href="http://localhost/BrightEyes_Project1/admin/addUser.php">
                                         <i class="fas fa-tachometer-alt"></i>add user</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="./editUser.php">
                                         <i class="fas fa-tachometer-alt"></i>edit user</a>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                         </li>
@@ -96,10 +96,10 @@
                                     <a href="http://localhost/BrightEyes_Project1/Admin/addCategory.php">
                                         <i class="fas fa-tachometer-alt"></i>add category</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="http://localhost/BrightEyes_Project1/Admin/editCategory.php">
                                         <i class="fas fa-tachometer-alt"></i>edit category</a>
-                                </li>
+                                </li> -->
                                 
                             </ul>
                         </li>
@@ -113,31 +113,34 @@
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="./productsTable.php">
-                                        <i class="fas fa-tachometer-alt"></i>prduct 1</a>
+                                        <i class="fas fa-tachometer-alt"></i>products table</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="./productsEdit.php">
                                         <i class="fas fa-tachometer-alt"></i>edit 2</a>
-                                </li>
+                                </li> -->
                                 <li>
                                     <a href="./productsAdd.php">
-                                        <i class="fas fa-tachometer-alt"></i>ADD PRODUCT</a>
+                                        <i class="fas fa-tachometer-alt"></i>Add product</a>
                                 </li>
                                 <li>
-                                    <a href="./productsOrder.php">
-                                        <i class="fas fa-tachometer-alt"></i>Orders </a>
+                                    <a href="./discount.php">
+                                        <i class="fas fa-tachometer-alt"></i>Discount </a>
                                 </li>
                             </ul>
                         </li>
                         
                         
                         <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-trophy"></i>Features
-                               
+                        <a class="js-arrow" href="./productsOrder.php">
+                                <i class="fas fa-tachometer-alt"></i>Orders
+                                <span class="arrow">
+                                    <i class="fas fa-angle-down"></i>
+                                </span>
                             </a>
                             
                         </li>
+<!-- 
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pages
@@ -166,8 +169,8 @@
                                 <span class="arrow">
                                     <i class="fas fa-angle-down"></i>
                                 </span>
-                            </a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
+                            </a> -->
+                            <!-- <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
                                     <a href="button.html">
                                         <i class="fab fa-flickr"></i>Button</a>
@@ -212,7 +215,7 @@
                                     <a href="typo.html">
                                         <i class="fas fa-font"></i>Typography</a>
                                 </li>
-                            </ul>
+                            </ul>  -->
                         </li>
                     </ul>
                 </nav>
@@ -233,7 +236,7 @@
                                 </a>
                             </div>
                             <div class="header-button2">
-                                <div class="header-button-item js-item-menu">
+                                <!-- <div class="header-button-item js-item-menu">
                                     <i class="zmdi zmdi-search"></i>
                                     <div class="search-dropdown js-dropdown">
                                         <form action="">
@@ -243,8 +246,8 @@
                                             </span>
                                         </form>
                                     </div>
-                                </div>
-                                <div class="header-button-item has-noti js-item-menu">
+                                </div> -->
+                                <!-- <div class="header-button-item has-noti js-item-menu">
                                     <i class="zmdi zmdi-notifications"></i>
                                     <div class="notifi-dropdown js-dropdown">
                                         <div class="notifi__title">
@@ -281,7 +284,7 @@
                                             <a href="#">All notifications</a>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                                 <div class="header-button-item mr-0 js-sidebar-btn">
                                     <i class="zmdi zmdi-menu"></i>
                                 </div>
@@ -292,10 +295,18 @@
                                                 <i class="zmdi zmdi-account"></i>Edit Acount</a>
                                         </div>
                                         <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Setting</a>
+                                            <a href="./login.php?logout=<?php echo $_SESSION['id']; ?>">
+                                                <i class="zmdi zmdi-settings"></i>Logout</a>
                                         </div>
-                                        <div class="account-dropdown__item">
+                                        <?php
+
+
+                                            if(isset($_GET['logout'])){
+                                                unset($_SESSION['id']);
+                                                session_destroy();
+                                                echo "<script>window.location='./login.php'</script>";}; ?>
+
+                                        <!-- <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-money-box"></i>Billing</a>
                                         </div>
@@ -312,11 +323,11 @@
                                         <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-email"></i>Email</a>
-                                        </div>
-                                        <div class="account-dropdown__item">
+                                        </div> -->
+                                        <!-- <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-notifications"></i>Notifications</a>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>

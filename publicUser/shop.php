@@ -99,34 +99,11 @@ $db = crud::selectProductt();
                 </div>
                 <div class="col-lg-9 col-md-9">
                     <div class="row">
-                        <!-- <div class="col-lg-4 col-md-6">
-                            <div class="product__item">
-                                <div class="product__item__pic set-bg" data-setbg="img/shop/Cat-eye-sunglass1.jpg">
-                                    <div class="label new">New</div>
-                                    <ul class="product__hover">
-                                        <li><a href="img/shop/Cat-eye-sunglass1.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                        <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                                    </ul>
-                                </div>
-                                <div class="product__item__text">
-                                    <h6><a href="#">Page<br>
-                                        Cat Eye Tortoise Eyeglasses
-                                        </a></h6>
-                                    <div class="rating">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <div class="product__price">59.00 JD</div>
-                                </div>
-                            </div>
-                        </div> -->
+                  
                         <?php $i=1;?>
                         <?php foreach($data as $value):?> 
                             <?php if ($i<=9):?>
-
+                        <?php if($value['discount']== 0){?>
                         <div class="col-lg-4 col-md-6">
                             <div class="product__item">
                                 <a href="./productDetails.php?pro_id=<?php echo $value['id']?>"><div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>"></a>
@@ -151,7 +128,40 @@ $db = crud::selectProductt();
                             </div>
                         </div>
                         <?php $i++;?>
+            <?php }else{?>
+                <div class="col-lg-4 col-md-6 ">
+                <div class="product__item sale">
+                    <div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>">
+                        <div class="label">Sale</div>
+                        <ul class="product__hover">
+                            <li><a href="img/product/Cat-eye-sunglass3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
+                            <li><a href="#"><span class="icon_heart_alt"></span></a></li>
+                            <li><a href="#"><span class="icon_bag_alt"></span></a></li>
+                        </ul>
+                    </div>
+                    <div class="product__item__text">
+                       <?php $ID = $value['id']; ?>
+                        <h6><a href="productDetails.php?pro_id=<?php echo $ID; ?>"> <?php echo $value['title'] ?> <br>
+                        <?php echo $value['productName'] ?>
+                            </a></h6>
+                            <div class="rating">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                        <div class="product__price"><?php echo $value['new_Price'].".00 JD";?><span><?php echo $value['price'].".00 JD";?></span></div>
+                    </div>
+                </div>
+            </div>
 
+
+
+
+
+
+                <?php }?>
                         <?php  endif;?>
                         <?php  endforeach;?>
 <!-- 

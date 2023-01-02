@@ -92,7 +92,7 @@ if(isset($_GET['action'])){
                                     <td class="cart__price"><?php echo $value['price']?> JD</td>
                                     <td class="cart__quantity">
                                         <div class="pro-qty">
-                                            <input type="text" value="2">
+                                            <input type="text" value="1">
                                         </div>
                                     </td>
                                     <td class="cart__total">118.00 JD</td>

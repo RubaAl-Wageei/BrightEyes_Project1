@@ -94,6 +94,7 @@ textarea {
                     <nav class="header__menu">
                         <ul>
                             <li><a href="./index.php">Home</a></li>
+                            <li><a href="./shop.php">ٍShop</a></li>
                             <li><a href="#">Categories</a>
                                 <ul class="dropdown">
                                         <li><a href="./shop.php?id=1">Cat Eye Glass</a></li>

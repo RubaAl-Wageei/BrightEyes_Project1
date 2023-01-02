@@ -54,9 +54,9 @@
         <div class="row property__gallery">
             <?php foreach($data as $value): ?>
                 <?php if($value['discount']== 0){continue;}?>
-            <div class="col-lg-3 col-md-4 col-sm-6 mix women">  
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                 <div class="product__item sale">
-                    <div class="product__item__pic set-bg" data-setbg=<?php echo $value['image']?>>
+                    <div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>">
                         <div class="label">Sale</div>
                         <!-- <div class="label new">New</div> -->
                         <ul class="product__hover">
@@ -66,11 +66,12 @@
                         </ul>
                     </div>
                     <div class="product__item__text">
-                        <h6><a href="#"><?php echo $value['productName'] ?> <br>
-                            Cat Eye Tortoise Eyeglasses
+                       <?php $ID = $value['id']; ?>
+                        <h6><a href="productDetails.php?pro_id=<?php echo $ID; ?>"> <?php echo $value['title'] ?> <br>
+                        <?php echo $value['productName'] ?>
                             </a></h6>
                   
-                        <div class="product__price"><?php echo $value['new_Price'];?><span><?php echo $value['price'];?></span></div>
+                        <div class="product__price"><?php echo $value['new_Price'].".00 JD";?><span><?php echo $value['price'].".00 JD";?></span></div>
                     </div>
                 </div>
             </div>
@@ -93,21 +94,21 @@
                     <div class="banner__item">
                         <div class="banner__text">
                             <span>The Chloe Collection</span>
-                            <h1>The Project Jacket</h1>
+                            <h1>See our New Sunglasses</h1>
                             <a href="#">Shop now</a>
                         </div>
                     </div>
                     <div class="banner__item">
                         <div class="banner__text">
                             <span>The Chloe Collection</span>
-                            <h1>The Project Jacket</h1>
+                            <h1>See our New Brand glasses</h1>
                             <a href="#">Shop now</a>
                         </div>
                     </div>
                     <div class="banner__item">
                         <div class="banner__text">
                             <span>The Chloe Collection</span>
-                            <h1>The Project Jacket</h1>
+                            <h1>See our Specials</h1>
                             <a href="#">Shop now</a>
                         </div>
                     </div>
@@ -119,22 +120,38 @@
 <!-- Banner Section End -->
 
 <!-- Trend Section Begin -->
-<section class="trend spad">
+<section class="product spad">
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Hot Trend</h4>
+            <div class="col-lg-4 col-md-4">
+                <div class="section-title">
+                    <h4>Our Best Sellers !!</h4>
+                </div>
+            </div>
+        </div>
+        <div class="row property__gallery">
+      
+              <?php $i = 1;  ?>
+              <?php foreach($data as $value): ?>
+
+                  <?php if($value['discount']== 1 || $i > 8){
+
+                        continue;}
+
+                                 ?>
+            <div class="col-lg-3 col-md-4 col-sm-6 mix women">
+                <div class="product__item sale">
+                    <div class="product__item__pic set-bg imgSize" data-setbg="../image/<?php echo $value['image']?>">
+                        <!-- <div class="label new">New</div> -->
+                   
                     </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/trend1C3.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Hannah<br>
-                                Cat Eye Champagne Eyeglasses
-                                </h6>
+                    
+                    <div class="product__item__text">
+                  
+                    <?php $ID = $value['id']; ?>
+                        <h6><a href="productDetails.php?pro_id=<?php echo $ID; ?>"><?php echo $value['title'] ?> <br>
+                        <?php echo $value['productName'] ?>
+                            </a></h6>
                             <div class="rating">
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
@@ -142,215 +159,21 @@
                                 <i class="fa fa-star"></i>
                                 <i class="fa fa-star"></i>
                             </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/trend2M4.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Marlowe<br>
-                                Cat Eye Rose Gold Sunglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/trend3M6.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Hacken<br>
-                                Round Black Sunglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
+                        <div class="product__price"><?php echo $value['price'].".00 JD";?></div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Best seller</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/bs1K5.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Bray<br>
-                                Oval Purple Eyeglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/bs2C1.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Page<br>
-                                Cat Eye Tortoise Eyeglasses   
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/bs3C2.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Myra<br>
-                                Cat Eye Multicolor Eyeglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-4 col-sm-6">
-                <div class="trend__content">
-                    <div class="section-title">
-                        <h4>Feature</h4>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/f1M5.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Sheila<br>
-                                Horn Champagne Sunglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/f2C6.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Jocelyn<br>
-                                Cat Eye Golden/Green Eyeglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                    <div class="trend__item">
-                        <div class="trend__item__pic">
-                            <img src="img/trend/f3K4.jpg" alt="">
-                        </div>
-                        <div class="trend__item__text">
-                            <h6>Besty<br>
-                                Round Blue Eyeglasses
-                                </h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                      <?php  $i++ ?>
+            <?php endforeach; ?>
+        
+        </div>
+    </div>
+</section>
+    
         </div>
     </div>
 </section>
 <!-- Trend Section End -->
-
-<!-- Discount Section Begin -->
-<!-- <section class="discount">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 p-0">
-                <div class="discount__pic">
-                    <img src="img/discount.jpg" alt="">
-                </div>
-            </div>
-            <div class="col-lg-6 p-0">
-                <div class="discount__text">
-                    <div class="discount__text__title">
-                        <span>Discount</span>
-                        <h2>Summer 2019</h2>
-                        <h5><span>Sale</span> 50%</h5>
-                    </div>
-                    <div class="discount__countdown" id="countdown-time">
-                        <div class="countdown__item">
-                            <span>22</span>
-                            <p>Days</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>18</span>
-                            <p>Hour</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>46</span>
-                            <p>Min</p>
-                        </div>
-                        <div class="countdown__item">
-                            <span>05</span>
-                            <p>Sec</p>
-                        </div>
-                    </div>
-                    <a href="#">Shop now</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section> -->
-<!-- Discount Section End -->
 
 <!-- Services Section Begin -->
 <section class="services spad">
@@ -393,7 +216,7 @@
 <div class="instagram">
     <div class="col-lg-4 col-md-4">
         <div class="section-title">
-            <h4>Shop by brands</h4>
+            <h4>We WORK WITH THE BEST BRANDS !</h4>
         </div>
     </div>
     <div class="container-fluid">

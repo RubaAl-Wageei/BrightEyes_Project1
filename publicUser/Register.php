@@ -1,6 +1,5 @@
 <?php 
 
-
 include('./include/header.php');
 require('../config.php');
 if(isset($_POST['submit'])){
@@ -139,11 +138,25 @@ if(isset($_POST['submit'])){
                     echo "<p> $error_repassword </p>";
                 }
                 ?>
-                <br><br>
+                <br>
                 <input type="submit" name="submit" value="Register" id="submit">
             
             <p id="para">Do you have an account?<a href="./login.php" >Login</a></p>
             </div>
         </form>
-    </div>  
-    <?php include('./include/footer.php'); ?>
+    </div> 
+     
+   <!-- Js Plugins -->
+   <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+
+    </html>

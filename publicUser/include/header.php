@@ -90,7 +90,7 @@ textarea {
                 <div class="col-xl-6 col-lg-7">
                     <nav class="header__menu">
                         <ul>
-                            <li><a href="./index.html">Home</a></li>
+                            <li><a href="./index.php">Home</a></li>
                             <li><a href="#">Categories</a>
                                 <ul class="dropdown">
                                         <li><a href="./shop.php?id=1">Cat Eye Glass</a></li>
@@ -111,7 +111,7 @@ textarea {
                                 </ul>
                             </li>
                             <!-- <li><a href="./blog.html">Blog</a></li> -->
-                            <li><a href="./contact.html">Contact</a></li>
+                            <li><a href="./contact.php">Contact</a></li>
                         </ul>
                     </nav>
                 </div>

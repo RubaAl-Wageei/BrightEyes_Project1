@@ -7,8 +7,6 @@
 <?php include('./include/header.php'); ?>
 <?php require('../config.php'); ?>
 
-<link rel="stylesheet" href="./css/Login.css">
-
     <?php 
     
     if(isset($_POST['submit'])){
@@ -49,11 +47,13 @@
           
     }
     
-
     ?>
 
+
+<link rel="stylesheet" href="./css/Login.css">
+
 <div class="container1">
-<h2>LOGIN </h2>
+    <h2>LOGIN </h2>
 
     <form action="" method="post" enctype="multipart/form-data" id="form">
             <br>
@@ -72,4 +72,17 @@
     </form>
 </div>
 
-<?php include('./include/footer.php'); ?>
+     <!-- Js Plugins -->
+     <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/mixitup.min.js"></script>
+        <script src="js/jquery.countdown.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/jquery.nicescroll.min.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+
+    </html>

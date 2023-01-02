@@ -51,8 +51,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
         }  
    
 } else{
-   echo"error";  
-    // $error= "error";  
+ $notMatch = "error";  
 }   
   
 }

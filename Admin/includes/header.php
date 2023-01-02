@@ -44,13 +44,13 @@
         <aside class="menu-sidebar2">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo-white.png" alt="Cool Admin" />
+                    <img src="./images/RIGHT-EYES.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
                     <div class="image img-cir img-120">
-                        <?php echo "<img src='{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
+                        <?php echo "<img src='../image/{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
                     </div>
                     <h4 class="name"><?php echo $_SESSION['name'];?></h4>
                     <a href="../login.php">Sign out</a>
@@ -294,11 +294,19 @@
                                             <a href="./editAcountadmin.php">
                                                 <i class="zmdi zmdi-account"></i>Edit Acount</a>
                                         </div>
-                                        <!-- <div class="account-dropdown__item">
-                                            <a href="#">
-                                                <i class="zmdi zmdi-settings"></i>Setting</a>
-                                        </div>
                                         <div class="account-dropdown__item">
+                                            <a href="./login.php?logout=<?php echo $_SESSION['id']; ?>">
+                                                <i class="zmdi zmdi-settings"></i>Logout</a>
+                                        </div>
+                                        <?php
+
+
+                                            if(isset($_GET['logout'])){
+                                                unset($_SESSION['id']);
+                                                session_destroy();
+                                                echo "<script>window.location='./login.php'</script>";}; ?>
+
+                                        <!-- <div class="account-dropdown__item">
                                             <a href="#">
                                                 <i class="zmdi zmdi-money-box"></i>Billing</a>
                                         </div>

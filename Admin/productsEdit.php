@@ -47,7 +47,7 @@ include('./includes/header.php');
      }else{
          echo "the file extenyion is not supported";
      }
-
+     $succses="";
     $P=crud::connect()->prepare('UPDATE products SET productName=:pName, price=:pPrice, image=:pImage, description=:pDescription, category=:pCategory WHERE id=:id');
 
     $P->bindValue(':pName', $name);
@@ -56,8 +56,11 @@ include('./includes/header.php');
     $P->bindValue(':pDescription', $description);
     $P->bindValue(':pCategory', $category);
     $P->bindValue(':id', $id);
-    $P->execute();
-    echo 'Successfully'."<br>";
+   
+if( $P->execute()){
+    $succses=1;
+}
+    // echo 'Successfully'."<br>";
     
     // header('Location: '.$_SERVER['REQUEST_URI']);
   
@@ -76,6 +79,15 @@ include('./includes/header.php');
                                         <strong>Edit items</strong> 
                                     </div>
                                     <div class="card-body card-block">
+                                    <?php if( !empty ($succses)):?>
+                                    <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+											<span class="badge badge-pill badge-success">Success</span>
+											The operation has been completed successfully.
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+                                        <?php endif;?>
                                         <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" enctype="multipart/form-data">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">

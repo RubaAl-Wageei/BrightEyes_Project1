@@ -29,9 +29,9 @@ include('./includes/header.php');
      move_uploaded_file($imagetemp,   $upload_image);
         
      }else{
-         echo "the file extenyion is not supported";
+        //  echo "the file extenyion is not supported";
      }
-
+     $succses="";
     $P=crud::connect()->prepare('INSERT INTO products(productName, price, image,  description, category) VALUE (:pName, :pPrice,:pImage, :pDescription, :pCategory)');
 
     $P->bindValue(':pName', $name);
@@ -39,7 +39,9 @@ include('./includes/header.php');
     $P->bindValue(':pImage',  $upload_image);
     $P->bindValue(':pDescription',$description);
     $P->bindValue(':pCategory', $category);
-    $P->execute();
+    if( $P->execute()){
+        $succses=1;
+    }
 
     }
 
@@ -56,6 +58,15 @@ include('./includes/header.php');
                                         <strong>Add item</strong> 
                                     </div>
                                     <div class="card-body card-block">
+                                    <?php if( !empty ($succses)):?>
+                                    <div class="sufee-alert alert with-close alert-success alert-dismissible fade show">
+											<span class="badge badge-pill badge-success">Success</span>
+											The operation has been completed successfully.
+											<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+												<span aria-hidden="true">&times;</span>
+											</button>
+										</div>
+                                        <?php endif;?>
                                         <form action="" method="post"  class="form-horizontal" enctype="multipart/form-data">
                                             <div class="row form-group">
                                                 <div class="col col-md-3">

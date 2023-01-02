@@ -10,7 +10,7 @@
     <?php 
     
     if(isset($_POST['submit'])){
-
+        $_SESSION['Validate'] = false;
         $email=$_POST['email'];
         $password=$_POST['password'];
         $error="";
@@ -26,8 +26,8 @@
                 $_SESSION['pass']=$d["Password"];
                 $_SESSION['role']=$d["Role"];
                 $_SESSION['id']=$d["id"];
-                // $_SESSION['validate']=true;
-                header("location:./index.php");
+                $_SESSION['validate']=true;
+                echo "<script>window.location='index.php'</script>";
 
                 //add date last log in use now() function
                 // $sql="UPDATE  users SET  last_login =now() WHERE id=". $_SESSION['id'];
@@ -66,7 +66,8 @@
             ?>
             <br><br>
             <input type="submit" name="submit" value="Login" id="submit">
-            <p id="para">Don't have an account?<a href="./register.php" >Sign up</a></p>
+            <br>
+            <p id="para">Don't have an account?<a href="./register.php" > <span>Sign up </span> </a></p>
 
     </form>
 </div>

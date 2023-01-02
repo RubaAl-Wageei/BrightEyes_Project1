@@ -70,10 +70,14 @@ textarea {
             <a href="./index.php"><img src="img/logo_1.png" alt="logo" style="width:50px"></a>
             <a href="./index.html"><img src="../img/logo_1.png" alt=""></a>
         </div>
+        
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__auth">
             <a href="./Register.php">Login</a>
             <a href="./Login.php">Register</a>
+            
+            <a href="./user_prof.html">Edit Profile</a>
+            
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -92,6 +96,7 @@ textarea {
                     <nav class="header__menu">
                         <ul>
                             <li><a href="./index.php">Home</a></li>
+                            <li><a href="./shop.php">ٍShop</a></li>
                             <li><a href="#">Categories</a>
                                 <ul class="dropdown">
                                         <li><a href="./shop.php?id=1">Cat Eye Glass</a></li>

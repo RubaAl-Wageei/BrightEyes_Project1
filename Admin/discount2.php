@@ -46,7 +46,8 @@ include('./includes/header.php');
                         $result2->bindValue(':Nprice', $newPrice);
                         $result2->bindValue(':id', $id);
                         $result2->execute();
-                        // header('location:./discount.php');        
+                
+                        // header('location:./discount.php');       
                         echo "<script>window.location='discount.php'</script>";
                        
                         }

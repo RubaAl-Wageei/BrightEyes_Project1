@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
     if(in_array($email , $email_check)){
         $email_exist = "This Email Is Exist";
     } else {
-        $sex=1;
+        $six=1;
     }
     // Regex name , email , phoneNumber , password and repassword
     if(preg_match("/^[A-Z a-z]+$/", $_POST['name']) && !empty($_POST['name'])){
@@ -54,7 +54,7 @@ if(isset($_POST['submit'])){
         $error_email = "Your Email Is Invalid"."<br>";
     }
 
-    if(preg_match("/^[0-9\-\+]{14}$/", $_POST['phoneNumber']) && !empty($_POST['phoneNumber'])){
+    if(preg_match("/^[0-9\-\+]{10}$/", $_POST['phoneNumber']) && !empty($_POST['phoneNumber'])){
         $phone = $_POST['phoneNumber'];
         $three=1;
     } else {
@@ -74,7 +74,7 @@ if(isset($_POST['submit'])){
         $error_repassword = "Your Password is Not Match"."<br>";
     }
 
-    if($one==1 && $two==1 && $three==1 && $four==1 && $five==1 && $sex==1 ){
+    if($one==1 && $two==1 && $three==1 && $four==1 && $five==1 && $six==1 ){
         $sql="INSERT INTO users ( FullName , PhoneNumber , Email , Password) VALUES ( :fname , :phone, :email , :pass)";
         $con = crud::connect()->prepare($sql);
 
@@ -83,11 +83,11 @@ if(isset($_POST['submit'])){
         $con->bindValue(':email' , $email);
         $con->bindValue(':pass' , $password);
         $con->execute();
-        // header("location: ./Login.php");
+        echo "<script>window.location='Login.php'</script>";
         // exit();
-        echo "Successfully"."<br>";
+        
     } else {
-        echo "Not Successfully"."<br>";
+      
     }
 }
 
@@ -140,8 +140,8 @@ if(isset($_POST['submit'])){
                 ?>
                 <br>
                 <input type="submit" name="submit" value="Register" id="submit">
-            
-            <p id="para">Do you have an account?<a href="./login.php" >Login</a></p>
+                <br>
+            <p id="para">Do you have an account?<a href="./login.php" > <span>Login </span> </a></p>
             </div>
         </form>
     </div> 

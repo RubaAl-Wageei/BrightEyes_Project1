@@ -107,12 +107,8 @@ textarea {
                             <!-- <li><a href="#">Men’s</a></li> -->
                          
                             <!-- <li><a href="./blog.html">Blog</a></li> -->
-<<<<<<< HEAD
                             <li><a href="./contact.php">Contact</a></li>
-=======
-                            <li><a href="./contact.php">About us</a></li>
-                            <li><a href="./about.php">Contact</a></li>
->>>>>>> c8e6370025ecd05f8b0ef5ce7e717a6e3e602dfd
+                            <li><a href="./about.php">About us</a></li>
                         </ul>
                     </nav>
                 </div>

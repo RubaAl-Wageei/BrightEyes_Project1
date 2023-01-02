@@ -100,5 +100,4 @@ public static function selectComments(){
 }
 
 }
-
-
+?>

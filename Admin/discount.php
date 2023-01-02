@@ -41,15 +41,14 @@ include('./includes/header.php');
                                                 
                                             </tr>
                                         </thead>
-                                    
   <tbody>
-
-
                                         <?php 
                  
                                         ?>
 
                                         <?php 
+                                    // i didnt print the items witch have the value of discount is 1 in database in this table 
+                                    // to show only items without discount . 
                                         $i=1;
                                          $data = crud::selectProduct(); 
                                          foreach($data as $value):
@@ -123,7 +122,11 @@ include('./includes/header.php');
                                             </tr>
                                         </thead>
   <tbody>
+                                            
                                         <?php 
+
+                                        // i didnt print the items witch have the value of discount is 0 in database in this table 
+                                      // to show only items with discount . 
                                         $i=1;
                                          $data = crud::selectProduct(); 
                                          foreach($data as $value):

@@ -31,7 +31,8 @@ include('./includes/header.php');
                         </div>
 
 <?php
-
+                            // get the id of the item from the link then used to query the first one to change the value of discount to 1
+                            // the second one to set a new price (discounted price)
                         $id=$_GET['id'];
 
                         if(isset($_POST['Confirm'])){

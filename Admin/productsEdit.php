@@ -58,7 +58,9 @@ include('./includes/header.php');
     $P->bindValue(':id', $id);
     $P->execute();
     echo 'Successfully'."<br>";
-
+    
+    // header('Location: '.$_SERVER['REQUEST_URI']);
+  
     }
 
     ?>

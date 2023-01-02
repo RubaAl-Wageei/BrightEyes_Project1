@@ -5,7 +5,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-7">
                         <div class="footer__about">
                             <div class="footer__logo">
-                                <a href="./index.php"><img src="./img/logo_1.png" alt="" style="width:140px"></a> <?php //----------------logo ?>
+                                <a href="./index.php"><img style="width:140px" src="img/logo_1.png" alt=""></a> <?php //----------------logo ?>
                             </div>
                             <p>Unique sunglasses say unique things about those who wear them, so your personal style should match the message you want to send out to the world.</p>
                             <!-- <div class="footer__payment">
@@ -21,33 +21,22 @@
                         <div class="footer__widget">
                             <h6>Quick links</h6>
                             <ul>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Blogs</a></li>
-                                <li><a href="#">Contact</a></li>
-                                <li><a href="#">FAQ</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-3 col-sm-4">
-                        <div class="footer__widget">
-                            <h6>Account</h6>
-                            <ul>
-                                <li><a href="#">My Account</a></li>
-                                <li><a href="#">Orders Tracking</a></li>
-                                <li><a href="#">Checkout</a></li>
-                                <li><a href="#">Wishlist</a></li>
+                                <li><a href="../index.php">Home</a></li>
+                                <li><a href="../">Categories</a></li>
+                                <li><a href="#">Shop</a></li>
+                                <li><a href="#">contact</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-8 col-sm-8">
                         <div class="footer__newslatter">
-                            <h6>NEWSLETTER</h6>
+                            <h6>Our social media</h6>
                            
-                            <div class="footer__social">
-                                <!-- <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-youtube-play"></i></a>
-                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            <div class="footer__social"  style="padding: right 50px;">
+                                <a href="https://www.facebook.com/profile.php?id=100089033536223" target="_blank"><i class="fa fa-facebook"></i></a>
+                                <!-- <a href="#"><i class="fa fa-twitter"></i></a> -->
+                                <a href="https://www.youtube.com/watch?v=aWTOxz501CM" target="_blank"><i class="fa fa-youtube-play"></i></a>
+                                <!-- <a href="#"><i class="fa fa-instagram"></i></a>
                                 <a href="#"><i class="fa fa-pinterest"></i></a> -->
                             </div>
                         </div>

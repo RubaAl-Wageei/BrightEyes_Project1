@@ -1,5 +1,5 @@
 <?php include('./include/header.php'); ?>
-<?php require('../config');?>
+<?php require('../config.php');?>
 
     <!-- Categories Section Begin -->
     <section class="categories">

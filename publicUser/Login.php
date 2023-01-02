@@ -67,7 +67,8 @@
             ?>
             <br><br>
             <input type="submit" name="submit" value="Login" id="submit">
-            <p id="para">Don't have an account?<a href="./register.php" >Sign up</a></p>
+            <br>
+            <p id="para">Don't have an account?<a href="./register.php" > <span>Sign up </span> </a></p>
 
     </form>
 </div>

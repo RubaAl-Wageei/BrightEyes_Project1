@@ -13,7 +13,6 @@
 
         $email=$_POST['email'];
         $password=$_POST['password'];
-        // $nowTimeStamp = date("Y-m-d H:i:s");
         $error="";
         $con = crud::connect()->prepare("SELECT * FROM users WHERE email=:email and password = :password ");
         $con->bindValue(':email' , $email);
@@ -30,7 +29,7 @@
                 // $_SESSION['validate']=true;
                 header("location:./index.php");
 
-                 //add date last log in use now() function
+                //add date last log in use now() function
                 // $sql="UPDATE  users SET  last_login =now() WHERE id=". $_SESSION['id'];
                 // $con = crud::connect()->prepare( $sql);
                 // $con->execute();

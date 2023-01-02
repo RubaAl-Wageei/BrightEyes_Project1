@@ -132,7 +132,7 @@
                             <span>( <?php echo $reviewe ?> reviews )</span>
                         </div>
                         <!-- <div class="product__details__price">25.00 JD<span>32.00 JD</span></div> -->
-                        <div class="product__details__price"><?php echo $value['price'];?>JD</div>
+                        <div class="product__details__price"><?php echo $value['price'];?> JD</div>
                         <p><?php echo $value['description']?></p>
                         <div class="product__details__button">
                             <!-- <div class="quantity">
@@ -141,7 +141,7 @@
                                     <input type="text" value="1">
                                 </div>
                             </div> -->
-                            <button type="submit" name="add" class="cart-btn">Add to Cart </button>
+                            <button type="submit" name="add" class="cart-btn" style="border:none;">Add to Cart </button>
                             <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
                             <ul>
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
@@ -187,7 +187,7 @@
                                 <h6>Description</h6>
                                 <p>
                                     Page Cat Eye glasses are made polished metal and superior TR90 material. Featured with pearl decorated temple arms hollowed-out frames, it is a good choice for most of women in all collections. Blue blocker lenses and tinted lenses both are available.
-                                    .</p>
+                                    </p>
                       
                             </div>
                 
@@ -203,7 +203,7 @@
 
                 <div class="blog__comment__item">
                     <div class="blog__comment__item__pic">
-                        <img src="./img/<?php echo $value['image'];?>" alt="" style="width:75px">
+                        <img src="../image/<?php echo $value['image'];?>" alt="" style="width:75px">
                     </div>
                     <div class="blog__comment__item__text">
                         <h6><?php echo $value['FullName'];?></h6>
@@ -218,13 +218,16 @@
                 <?php  endforeach;?>
                 <form acton="" method="post">
                 <label for="story">write comment:</label>
+                <div >
 
-<textarea id="story" name="comment"
-          rows="5" cols="33">
-It was a dark and stormy night...
-</textarea>
-<input type="submit" name="submit">
-</form>
+                    <textarea id="story" name="comment"rows="5" cols="33" style="width:100%;">Comment...
+                    </textarea>
+                </div >
+                <div style="display: flex; justify-content: center; align-items: center;">
+                  <input type="submit" name="submit" style="color:white;background-color:red;badding:2px;border-radius:5px;border:none;font-size:1.5em">
+
+                </div>
+                        </form>
                             </div>
                         </div>
                     </div>

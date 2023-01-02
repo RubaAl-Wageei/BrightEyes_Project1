@@ -58,7 +58,7 @@ include('./includes/header.php');
                                                 <td><?php echo $i++;?></td>  
                                                 <td><?php echo $value['productName'];?></td>
                                                 <td><?php echo $value['price'];?></td> 
-                                                <td> <?php echo "<img src='../image/{$value['image']}'style=\"width:100px\">"?></td>
+                                                <td> <?php echo "<img src='../image/{$value['image']}'style=\"width:150px\">"?></td>
                                                 <td><?php echo $value['description'];?></td> 
                                                 <td><?php echo $value['category'];?></td> 
                                                 <form method="post">

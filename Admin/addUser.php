@@ -1,5 +1,5 @@
-<?php include('./include/header.php');?>
-<?php require('../bublic/config.php'); ?>
+<?php include('./includes/header.php');?>
+<?php require('../config.php'); ?>
 <?php
 
 // post method تخزين البيانات داخل متغيرات عن طريق ال 
@@ -94,7 +94,9 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
     $db->bindValue(':role' , $role);
    
     $db -> execute();
+
     $succses=1;
+
 }else{
     echo 'not Successfully'."<br>";
 
@@ -182,4 +184,4 @@ if( $one==1 && $two==1 && $three==1 &&  $four==1 &&  $five==1 ){
                                 </div>
                             </div>
                         </div>
-<?php include('./include/footer.php');?>
+<?php include('./includes/footer.php');?>

@@ -8,7 +8,7 @@
     <meta name="keywords" content="Ashion, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Ashion | Template</title>
+    <title>BrightEyes | Project</title>
 
     <!-- Google Font -->
     <!-- <link href="https://fonts.googleapis.com/css2?family=Cookie&display=swap" rel="stylesheet">
@@ -74,6 +74,9 @@ textarea {
         <div class="offcanvas__auth">
             <a href="./Register.php">Login</a>
             <a href="./Login.php">Register</a>
+            
+            <a href="./user_prof.html">Edit Profile</a>
+            
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -85,9 +88,7 @@ textarea {
                 <div class="col-xl-3 col-lg-2">
                     <div class="header__logo">
 
-
                         <a href="./index.php"><img src="./img/logo_1.png" alt="" style="width:50px"></a> 
-
                     </div>
                 </div>
                 <div class="col-xl-6 col-lg-7">
@@ -106,9 +107,9 @@ textarea {
                                 </li>     
                             <!-- <li><a href="#">Men’s</a></li> -->
                          
-                            <!-- <li><a href="./blog.html">Blog</a></li> -->
-                            <li><a href="./contact.php">About us</a></li>
-                            <li><a href="./about.php">Contact</a></li>
+                            <li><a href="./shop.php">SHOP</a></li>
+                            <li><a href="./contact.php">Contact</a></li>
+                            <li><a href="./about.php">About us</a></li>
                         </ul>
                     </nav>
                 </div>

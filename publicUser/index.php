@@ -44,7 +44,7 @@
       
 
         <?php 
-
+// to get the datat from data base 
        $data = crud::selectProduct();
 
    ?>

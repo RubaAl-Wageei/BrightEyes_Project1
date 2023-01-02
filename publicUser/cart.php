@@ -75,10 +75,10 @@ if(isset($_GET['action'])){
 
                                 <tr>
                                     <td class="cart__product__item">
-                                        <img src="<?php echo $value['image']?>" alt="" style="width:100px">
+                                        <img src="../image/<?php echo $value['image']?>" alt="" style="width:100px">
                                         <div class="cart__product__item__title">
-                                            <h6>Page<br>
-                                            <?php echo $value['name']?>
+                                            <h6><?php echo $value['title']?><br>
+                                            <?php echo $value['productName']?>
                                                 </h6>
                                             <div class="rating">
                                                 <i class="fa fa-star"></i>

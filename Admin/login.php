@@ -145,10 +145,10 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
 
                             </form>
                             <div class="register-link">
-                                <p>
+                                <!-- <p>
                                     Don't you have account?
                                     <a href="#">Sign Up Here</a>
-                                </p>
+                                </p> -->
                             </div>
                         </div>
                     </div>

@@ -51,7 +51,7 @@
    ?>
        
       
-       
+       <!-- to print values from data base i used discount = 0 continue to display just the items on discount in my data base !-->
         <div class="row property__gallery">
             <?php foreach($data as $value): ?>
                 <?php if($value['discount']== 0){continue;}?>
@@ -59,7 +59,6 @@
                 <div class="product__item sale">
                     <div class="product__item__pic set-bg" data-setbg="../image/<?php echo $value['image']?>">
                         <div class="label">Sale</div>
-                        <!-- <div class="label new">New</div> -->
                         <ul class="product__hover">
                             <li><a href="img/product/Cat-eye-sunglass3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
                             <li><a href="#"><span class="icon_heart_alt"></span></a></li>
@@ -87,6 +86,7 @@
 <!-- Product Section End -->
 
 <!-- Banner Section Begin -->
+
 <section class="banner set-bg" data-setbg="img/banner/banner-1.jpg">
     <div class="container">
         <div class="row">
@@ -121,6 +121,9 @@
 <!-- Banner Section End -->
 
 <!-- Trend Section Begin -->
+
+
+
 <section class="product spad">
     <div class="container">
         <div class="row">
@@ -131,6 +134,7 @@
             </div>
         </div>
         <div class="row property__gallery">
+            <!-- To print 8 items from our data base i used discount = 1 to not print the discounted items -->
       
               <?php $i = 1;  ?>
               <?php foreach($data as $value): ?>
@@ -142,13 +146,9 @@
                                  ?>
             <div class="col-lg-3 col-md-4 col-sm-6 mix women">
                 <div class="product__item sale">
-                    <div class="product__item__pic set-bg imgSize" data-setbg="../image/<?php echo $value['image']?>">
-                        <!-- <div class="label new">New</div> -->
-                   
-                    </div>
-                    
-                    <div class="product__item__text">
-                  
+                    <div class="product__item__pic set-bg imgSize" data-setbg="../image/<?php echo $value['image']?>">        
+                    </div>      
+                    <div class="product__item__text">    
                     <?php $ID = $value['id']; ?>
                         <h6><a href="productDetails.php?pro_id=<?php echo $ID; ?>"><?php echo $value['title'] ?> <br>
                         <?php echo $value['productName'] ?>

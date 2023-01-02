@@ -13,7 +13,7 @@ include('./includes/header.php');
 <?php
     $id=$_GET['id'];
 
-
+// to display data before editing it 
     $A = crud::connect()->prepare("SELECT * FROM products WHERE id= $id"); 
     $A->execute();
     $data= $A->fetch(PDO::FETCH_ASSOC);
@@ -48,6 +48,7 @@ include('./includes/header.php');
          echo "the file extenyion is not supported";
      }
 
+        // to update the data 
     $P=crud::connect()->prepare('UPDATE products SET productName=:pName, price=:pPrice, image=:pImage, description=:pDescription, category=:pCategory WHERE id=:id');
 
     $P->bindValue(':pName', $name);

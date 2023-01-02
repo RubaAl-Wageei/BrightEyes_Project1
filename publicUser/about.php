@@ -41,16 +41,10 @@
                         </div>
                         <div class="blog__details__quote">
                             <div class="icon"><i class="fa fa-quote-left"></i></div>
-                            <p>Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                            aliquip ex ea commodo consequat.</p>
+                            <p>We invite you to continue your shopping experience on our Bright eyes. Discover the premier shopping destination for the top brands, latest trends, and exclusive styles of high quality fashion and performance sunglasses. Your perfect new pair of shades is waiting for you.</p>
                         </div>
                         <div class="blog__details__desc">
-                            <p>Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                                laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                            dolor in reprehenderit in voluptate.</p>
+                            <p>Unique sunglasses say unique things about those who wear them, so your personal style should match the message you want to send out to the world.</p>
                         </div>
                         <!-- <div class="blog__details__tags">
                             <a href="#">Fashion</a>

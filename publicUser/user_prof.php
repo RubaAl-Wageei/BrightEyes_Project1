@@ -5,7 +5,7 @@
 <?php 
 $id=$_SESSION['id'];
 
-echo $id;
+// echo $id;
 // get data from DB use id
 
 // لحتى اعرض البيانات القديمة داخل الحقول

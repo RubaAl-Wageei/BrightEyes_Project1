@@ -12,7 +12,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Dashboard 2</title>
+    <title>RIGHT EYES</title>
 
     <!-- Fontfaces CSS-->
     <link href="css/font-face.css" rel="stylesheet" media="all">
@@ -44,7 +44,7 @@
         <aside class="menu-sidebar2">
             <div class="logo">
                 <a href="#">
-                    <img src="./images/RIGHT-EYES.png" alt="Cool Admin" />
+                    <img src="./images/RIGHT-EYES.png" alt="RIGHT EYES" />
                 </a>
             </div>
             <div class="menu-sidebar2__content js-scrollbar1">

@@ -64,7 +64,7 @@ if(isset($_GET['action'])){
                                     <th>Product</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <th>Total</th>
+                                    <!-- <th>Total</th> -->
                                     <th></th>
                                 </tr>
                             </thead>
@@ -95,7 +95,7 @@ if(isset($_GET['action'])){
                                             <input type="text" value="1">
                                         </div>
                                     </td>
-                                    <td class="cart__total">118.00 JD</td>
+                                    <!-- <td class="cart__total">118.00 JD</td> -->
                                     <td class="cart__close"><a href="./cart.php?action=remove&id=<?php echo $value['id']?>"><span class="icon_close"></span></a></td>
                                 </tr>
                                 <?php $total+=$value['price'];?>

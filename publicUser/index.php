@@ -96,21 +96,21 @@
                         <div class="banner__text">
                             <span>The Chloe Collection</span>
                             <h1>See our New Sunglasses</h1>
-                            <a href="#">Shop now</a>
+                            <a href="./shop.php">Shop now</a>
                         </div>
                     </div>
                     <div class="banner__item">
                         <div class="banner__text">
                             <span>The Chloe Collection</span>
                             <h1>See our New Brand glasses</h1>
-                            <a href="#">Shop now</a>
+                            <a href="./shop.php">Shop now</a>
                         </div>
                     </div>
                     <div class="banner__item">
                         <div class="banner__text">
                             <span>The Chloe Collection</span>
                             <h1>See our Specials</h1>
-                            <a href="#">Shop now</a>
+                            <a href="./shop.php">Shop now</a>
                         </div>
                     </div>
                 </div>

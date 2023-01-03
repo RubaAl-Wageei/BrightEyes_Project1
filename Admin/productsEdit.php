@@ -28,6 +28,7 @@ include('./includes/header.php');
     $category = $_POST['product-category'];
 
 
+    
     $fileimagename =$_FILES['photo-input'];
      $imagename=$fileimagename['name'];
      $imagetemp=$fileimagename['tmp_name'];
@@ -47,12 +48,12 @@ include('./includes/header.php');
      }else{
          echo "the file extenyion is not supported";
      }
- main
-     $succses="";
+
+   
 
 
         // to update the data 
- main
+
     $P=crud::connect()->prepare('UPDATE products SET productName=:pName, price=:pPrice, image=:pImage, description=:pDescription, category=:pCategory WHERE id=:id');
 
     $P->bindValue(':pName', $name);

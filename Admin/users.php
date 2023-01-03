@@ -58,7 +58,7 @@
                                                     <div class="table-data-feature" style="justify-content:center">
                                                       
                                                         <button class="item" data-toggle="tooltip" data-placement="top" title="Edit">
-                                                            <a href="./changetoAdmin.php?id=<?php echo $value['id']; ?>"><i class="zmdi zmdi-account"></i></a>
+                                                            <a href="./changetoAdmin.php?id=<?php echo $value['id'];?>"><i class="zmdi zmdi-account"></i></a>
                                                         </button>
                
                                                     </div>

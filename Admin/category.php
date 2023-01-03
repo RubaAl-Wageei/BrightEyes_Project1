@@ -1,7 +1,9 @@
 <?php include('./includes/header.php');?>
 
 <?php require('../config.php'); ?>
+
 <!--category الخاص بقرائة بيانات جدول ال function استدعاء ال  -->
+
 <?php $db = crud::selectDataCategort(); ?>
 
 

@@ -11,7 +11,7 @@ $db = crud::selectProductt();
 <?php 
 
 // ------------------- select product from database (category)
-
+//url الموجود في  id  يتم عرض الكاتيجوري بحسب ال 
     if(isset($_GET['id'])){
     $_SESSION['id_category']=$_GET['id'];
     // $id_category= $_SESSION['id_category'];
@@ -19,7 +19,7 @@ $db = crud::selectProductt();
    $sql="SELECT * FROM products WHERE category=".$_SESSION['id_category'];
 
 }else{
-    $sql="SELECT * FROM products ";
+    $sql="SELECT * FROM products";
 }
     $db=crud::connect()->prepare($sql);
     $db ->execute();

@@ -2,7 +2,10 @@
 <?php include('./include/header.php'); ?>
 <?php require('../config.php');?>
 
+
 <?php 
+
+// URL الموجود في ال id لاحضار اسم الكاتيجوري من خلال ال 
     if(isset($_GET['pro_id'])){
 
         $id =&$_GET['pro_id'];
@@ -18,11 +21,14 @@
     }
     
     //-----------------------------------------
+
     if(isset($_POST['add'])){
-        //print id producr
-        if(isset($_SESSION['cart'])){
+
+
+        if(isset($_SESSION['cart'])){ 
             $item_array_id = array_column($_SESSION['cart'], 'product_id');
             // echo $_SESSION['id_category'];
+            // print_r( $item_array_id);
             
                 if(in_array($_POST['product_id'],$item_array_id)){
                 // echo "<script>alert('product is already added in the cart')</script>";
@@ -45,28 +51,29 @@
             // echo "<script>window.location='./product.php'</script>";
     
         } 
-                // print_r($_SESSION['cart']);
+                print_r($_SESSION['cart']);
 
     }
   
     //-------------------------------------
+
+    // لتخزين الكومنت اللي بكتبه المستخدم في الداتا بيس تحت اسم المنتج
     if (isset($_POST['submit'])){
-        $product_id=$_SESSION['details_id'];
-        $comment=$_POST['comment'];
-        $user_id=$_SESSION['id'];
-        $sql="INSERT INTO comments (user_id, comment, comment_date, product_id) VALUES (' $user_id', '$comment', now(),  '$product_id');";
+        $product_id=$_SESSION['details_id']; //curl احضار رقم المنتج من ال
+        $comment=$_POST['comment']; 
+        $user_id=$_SESSION['id']; //session احضار رقم المستخدم من ال 
+        $sql="INSERT INTO comments (user_id, comment, comment_date, product_id) VALUES ('$user_id', '$comment', now(),  '$product_id');";
         $db=crud::connect()->prepare($sql);
-        // $db->bindValue(':id', $_SESSION['id']);
-        // $db->bindValue(':comment', $comment);
-        // $db->bindValue(':pro', $product_id);
+
 
         $db ->execute();
         // echo "succes";
     }
 
     //---------------------comment
+
+    // الكود الخاص في عرض الكومنتات في الصفحة
     $comments=crud::selectComments();
-    // $product_id='2';
     $comments->bindValue(':id', $_SESSION['details_id']);
     $comments->execute();
     $data_comment= $comments->fetchAll(PDO::FETCH_ASSOC);
@@ -74,6 +81,7 @@
     $reviewe=count($data_comment);
 
     //------------------------------category product
+    // هذا الكود لعرض المنتجات من نفس الكاتيجوري
     $data_category = array();
     $con=crud::connect()->prepare("SELECT * FROM products WHERE category=$cat");
     $con->execute();
@@ -87,7 +95,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__links">
-                        <a href="./index.html"><i class="fa fa-home"></i> Home</a>
+                        <a href="./index.html"><i class="fa fa-home"></i>Home</a>
                         <a href="#">Cat-eye sunglass </a>
                         <span>Page
                             Cat Eye Tortoise Eyeglasses
@@ -145,12 +153,7 @@
                                 <?php }?> 
                         <p><?php echo $value['description']?></p>
                         <div class="product__details__button">
-                            <!-- <div class="quantity">
-                                <span>Quantity:</span>
-                                <div class="pro-qty">
-                                    <input type="text" value="1">
-                                </div>
-                            </div> -->
+                       
                             <button type="submit" name="add" class="cart-btn" style="border:none;">Add to Cart </button>
                             <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
                             <ul>
@@ -234,15 +237,13 @@
 
                     <textarea id="story" name="comment"rows="5" cols="33" style="width:100%;">Comment...
                     </textarea>
-                </div >
+                </div>
                 <div style="display: flex; justify-content: center; align-items: center;">
                   <input type="submit" name="submit" style="color:white;background-color:red;badding:2px;border-radius:5px;border:none;font-size:1.5em">
                 </div>
                 <?php endif;?>
                 <?php if(!isset($_SESSION['name'])):?>
-                <!-- <div style="display: flex; justify-content: center; align-items: center;">
-                  <p>Plea</p>
-                </div> -->
+            
                 <?php endif;?>
               
                         </form>
@@ -260,32 +261,6 @@
                         <h5>RELATED PRODUCTS</h5>
                     </div>
                 </div>
-<!-- 
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/Cat-eye-sunglass3.jpg">
-                            <div class="label new">New</div>
-                            <ul class="product__hover">
-                                <li><a href="img/product/related/Cat-eye-sunglass3.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Hannah<br>
-                                Cat Eye Champagne Eyeglasses
-                                </a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                </div> -->
                 <?php $i=1;?>
                 <?php foreach($data_category as $value):?> 
                 <?php if ($i<=4):?>
@@ -319,57 +294,7 @@
                 <?php  endif;?>
                 <?php  endforeach;?>
 
-                <!--  <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/Cat-eye-sunglass5.jpg">
-                            <div class="label stockout">out of stock</div>
-                            <ul class="product__hover">
-                                <li><a href="img/product/related/Cat-eye-sunglass5.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Kama<br>
-                                Cat Eye Black/Golden Eyeglasses
-                                </a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="product__item">
-                        <div class="product__item__pic set-bg" data-setbg="img/product/related/Cat-eye-sunglass6.jpg">
-                            <ul class="product__hover">
-                                <li><a href="img/product/related/Cat-eye-sunglass36.jpg" class="image-popup"><span class="arrow_expand"></span></a></li>
-                                <li><a href="#"><span class="icon_heart_alt"></span></a></li>
-                                <li><a href="#"><span class="icon_bag_alt"></span></a></li>
-                            </ul>
-                        </div>
-                        <div class="product__item__text">
-                            <h6><a href="#">Jocelyn<br>
-                                Cat Eye Golden/Green Eyeglasses
-                                </a></h6>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                            </div>
-                            <div class="product__price">59.00 JD</div>
-                        </div>
-                    </div>
-                </div> 
-            </div>
-        </div> -->
+              
     </section>
     <!-- Product Details Section End -->
 

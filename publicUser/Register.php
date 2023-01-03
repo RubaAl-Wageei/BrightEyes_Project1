@@ -10,7 +10,6 @@ if(isset($_POST['submit'])){
     $password = $_POST['password'];
     $repassword = $_POST['re_password'];
 
-    // echo($name);
 
 
     $one=0;

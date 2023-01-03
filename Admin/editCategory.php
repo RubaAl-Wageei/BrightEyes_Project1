@@ -45,7 +45,7 @@ if(in_array( $file_extenshion, $array_extension )){
 
 
     $db->bindValue(':name' , $category_name);
-    $db->bindValue(':img' , $upload_image);
+    $db->bindValue(':img' , $imagename);
 
     $db->bindValue(':id' , $id);
 

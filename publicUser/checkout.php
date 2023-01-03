@@ -3,13 +3,14 @@
 <?php require('../config.php');?>
 
 <?php
+
+
 if(!isset($_SESSION['name'])){
     echo "<script>window.location='login.php'</script>";
  };
  
 
 $dd=crud::selectProductt();
-// echo $_SESSION['totalPrice'];
 if(isset($_SESSION['cart'])){
     $item_array_id = array_column($_SESSION['cart'], 'product_id');
 
@@ -19,17 +20,26 @@ if(isset($_SESSION['cart'])){
 // session_unset();
 ?>
 <?php 
+
+// orders table تخزين الطلب في ال 
     if(isset($_POST['submit'])) {
+
     $xx = $_SESSION['totalPrice'];
+
     $sql="INSERT INTO orders (order_id, order_date, user_id, total_price) VALUES (NULL, now(), 1, '$xx');";
+
     $con=crud::connect()->prepare($sql);
+
     $con->execute();
-    $conn=crud::connect()->prepare("SELECT * FROM orders  ORDER BY order_id DESC");
+
+// orders details table تخزين الطلب في ال 
+
+    $conn=crud::connect()->prepare("SELECT * FROM orders  ORDER BY order_id DESC"); //  بنعمل للجدول ترتيب تنازلي لحتى نجيب اخر اوردر  
     $conn->execute();
-    $data=$conn->fetch(PDO::FETCH_ASSOC);
+    $data=$conn->fetch(PDO::FETCH_ASSOC);  // بجيب اول صف fetch  من خلال ال 
     $last_id = $data['order_id'];
-    echo $last_id;
-     foreach($dd as $value){
+
+    foreach($dd as $value){
             if(in_array($value['id'],$item_array_id)){
                 $x=$value['id'];
                 $y=$value['price'];
@@ -42,7 +52,7 @@ if(isset($_SESSION['cart'])){
         unset($_SESSION['cart']);
         unset($_SESSION['totalPrice']);
         echo "<script>window.location='./index.php'</script>";
-        
+
         }
     // }
 

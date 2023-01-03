@@ -3,7 +3,7 @@
 
 <?php
 
-
+// i use two query to change discount value to 0 then to reset the new price to 0
 $id=$_GET['id'];
 
 if(isset($_GET['id'])){

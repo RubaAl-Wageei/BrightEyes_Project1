@@ -15,6 +15,7 @@ if(isset($_SESSION['cart'])){
 
 };
 
+
 // session_unset();
 ?>
 <?php 
@@ -41,6 +42,7 @@ if(isset($_SESSION['cart'])){
         unset($_SESSION['cart']);
         unset($_SESSION['totalPrice']);
         echo "<script>window.location='./index.php'</script>";
+        
         }
     // }
 

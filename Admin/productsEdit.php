@@ -28,6 +28,7 @@ include('./includes/header.php');
     $category = $_POST['product-category'];
 
 
+    
     $fileimagename =$_FILES['photo-input'];
      $imagename=$fileimagename['name'];
      $imagetemp=$fileimagename['tmp_name'];

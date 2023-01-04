@@ -1,12 +1,12 @@
-
-
-
 <?php session_start();?>
 <?php require('../config.php');?>
 <?php include('./include/header.php'); ?>
 
 <?php 
+
+
 $dbd = crud::selectProductt();
+
 if(isset($_SESSION['cart'])) {
     $product_id=array_column($_SESSION['cart'], 'product_id');
 

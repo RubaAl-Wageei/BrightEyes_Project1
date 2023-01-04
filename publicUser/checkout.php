@@ -11,6 +11,7 @@ if(!isset($_SESSION['name'])){
  
 
 $dd=crud::selectProductt();
+
 if(isset($_SESSION['cart'])){
     $item_array_id = array_column($_SESSION['cart'], 'product_id');
 

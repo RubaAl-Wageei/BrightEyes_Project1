@@ -50,7 +50,7 @@ include('./includes/header.php');
                                             </tr>
                                         </thead>
   <tbody>
-                                        <?php $i=1 ?>
+                                        <?php $i=1; ?>
                                         <?php $data = crud::selectProduct(); ?>
                                         <?php foreach($data as $value):?> 
                                       

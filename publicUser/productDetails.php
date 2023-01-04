@@ -31,7 +31,7 @@
             // print_r( $item_array_id);
             
                 if(in_array($_POST['product_id'],$item_array_id)){
-                // echo "<script>alert('product is already added in the cart')</script>";
+                echo "<script>alert('product is already added in the cart')</script>";
                 // echo "<script>window.location='./product.php?action=category&id=".$_SESSION['id_category']."'"."</script>";
                 }else{
                     $count=count($_SESSION['cart']);
@@ -51,7 +51,7 @@
             // echo "<script>window.location='./product.php'</script>";
     
         } 
-                print_r($_SESSION['cart']);
+                // print_r($_SESSION['cart']);
 
     }
   

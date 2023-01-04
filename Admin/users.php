@@ -43,17 +43,24 @@
                                         </thead>
                                         <tbody>
                                             <!-- foreach  طباعة البيانات داخل جدول من خلال  -->
+                                            <?php $i=1; ?>
                                             <?php foreach($db as $value):?> 
                                             <?php if($value['IsDeleted']==1){continue;};?> 
 
     
                                             <tr style="text-align:center">
-                                            <td><?php echo $value['id']?></td>
+                                            <td><?php echo $i++;?></td>  
                                             <td><?php echo $value['FullName']?></td>
                                             <td><?php echo $value['PhoneNumber']?></td>
                                             <td><span class="block-email"><?php echo $value['Email']?></span></td>
                                             <td><?php echo $value['Password']?></td>
-                                            <td><?php echo $value['Role']?></td>
+                                            <td>
+                                                <?php if( $value['Role'] == 1){
+                                                    echo "Admin";
+                                                    }else{
+                                                        echo "User";
+                                                    }?>
+                                                
                                             <td>
                                                     <div class="table-data-feature" style="justify-content:center">
                                                       

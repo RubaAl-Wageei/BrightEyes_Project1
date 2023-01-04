@@ -25,8 +25,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <!-- <style> 
-textarea {
+    <style> 
+/* textarea {
   width: 100%;
   height: 150px;
   padding: 12px 20px;
@@ -36,8 +36,19 @@ textarea {
   background-color: #f8f8f8;
   font-size: 16px;
   resize: none;
+} */
+
+.categories__text a {
+	font-size: 28px;
+	color: #111111;
+	text-transform: uppercase;
+	font-weight: 600;
+	position: relative;
+	padding: 0 0 3px;
+	display: inline-block;
 }
-</style> -->
+
+</style>
 </head>
 <body>
 <?php

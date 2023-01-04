@@ -50,7 +50,7 @@
             <div class="menu-sidebar2__content js-scrollbar1">
                 <div class="account2">
                     <div class="image img-cir img-120">
-                        <?php echo "<img src='../image/{$_SESSION['img']}' alt= '{$_SESSION['name']}' style=\"width:100px\">" ?>
+                        <?php echo "<img src='../image/{$_SESSION['img']}' alt= '{$_SESSION['name']}' >" ?>
                     </div>
                     <h4 class="name"><?php echo $_SESSION['name'];?></h4>
                     <a href="./login.php">Sign out</a>

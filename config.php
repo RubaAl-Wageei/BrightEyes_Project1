@@ -98,6 +98,18 @@ public static function selectComments(){
   
     return    $con;
 }
+// function cart table
+public static function selectcartTable(){
+    $sql="SELECT products.id,products.productName,products.title,products.image,products.price,cart.quantity
+    FROM products
+    INNER JOIN cart 
+    ON products.id=cart.product_id
+    WHERE cart.user_id=:id";
+    $db=crud::connect()->prepare($sql);
+    
+    return    $db;
+
+}
 
 }
 ?>

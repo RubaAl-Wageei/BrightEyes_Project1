@@ -40,6 +40,12 @@
                     );
                     $_SESSION['cart'][$count]=$item_array;
                     // echo "<script>window.location='./product.php?action=category&id=".$_SESSION['id_category']."'"."</script>";
+                    //--------------------------------------
+                    $product_id=$_POST['product_id'];
+                    $user_id=$_SESSION['id'];
+                    $sql="INSERT INTO cart (user_id, product_id, quantity) VALUES ('$user_id', ' $product_id', '1');";
+                    $con=crud::connect()->prepare($sql);
+                    $con->execute();
                 }
         }else{
             $item_array=array(
@@ -48,13 +54,27 @@
     
             // create vew session variable
             $_SESSION['cart'][0]=  $item_array;
-            // echo "<script>window.location='./product.php'</script>";
+            //-----------------------------
+            $product_id=$_POST['product_id'];
+            $user_id=$_SESSION['id'];
+            $sql="INSERT INTO cart (user_id, product_id, quantity) VALUES ('$user_id', ' $product_id', '1');";
+            $con=crud::connect()->prepare($sql);
+            $con->execute();
     
         } 
                 // print_r($_SESSION['cart']);
 
     }
-  
+  //------------------------------------------
+
+
+//   if(isset($_POST['add'])){
+//     $product_id=$_POST['product_id'];
+//     $user_id=$_SESSION['id'];
+//     $sql="INSERT INTO cart (user_id, product_id, quantity) VALUES ('$user_id', ' $product_id', '1');";
+//     $con=crud::connect()->prepare($sql);
+//     $con->execute();
+//   }
     //-------------------------------------
 
     // لتخزين الكومنت اللي بكتبه المستخدم في الداتا بيس تحت اسم المنتج
@@ -160,25 +180,7 @@
                                 <li><a href="#"><span class="icon_heart_alt"></span></a></li>
                             </ul>
                         </div>
-                        <!-- <div class="product__details__widget">
-                            <ul>
-                                <li>
-                                    <span>Availability:</span>
-                                    <div class="stock__checkbox">
-                                        <label for="stockin">
-                                            In Stock
-                                            <input type="checkbox" id="stockin">
-                                            <span class="checkmark"></span>
-                                        </label>
-                                    </div>
-                                </li>
-                            
-                                <li>
-                                    <span>Promotions:</span>
-                                    <p>Free shipping</p>
-                                </li>
-                            </ul>
-                        </div> -->
+
                     </div>
                 </div>
                 </form>

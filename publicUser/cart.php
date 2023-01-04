@@ -5,17 +5,25 @@
 <?php 
 
 
-$dbd = crud::selectProductt();
-
+$user_id=$_SESSION['id'];
 if(isset($_SESSION['cart'])) {
     $product_id=array_column($_SESSION['cart'], 'product_id');
 
 }
 
 // ------------------- delet from cart 
+
+
 if(isset($_GET['action'])){
   
     $id=$_GET['id'];
+    $sql="DELETE FROM cart WHERE user_id=:user_id AND product_id=:product_id";
+    $db=crud::connect()->prepare($sql);
+    $db->bindValue(':user_id',$user_id);
+    $db->bindValue(':product_id',$id);
+    $db->execute();
+
+
     // print_r($_SESSION['cart']);
     foreach($_SESSION['cart'] as $key => $value ){
         if($value['product_id'] == $id){
@@ -26,14 +34,31 @@ if(isset($_GET['action'])){
     }
    
 }
-// if(isset($_POST['empty'])){
-   
-        
-//     unset($_SESSION['cart']);
-//     header("location:./shop.php");
-  
-  
-//   }
+//===================================================
+
+// لتعديل كمية المنتجات في الداتا بس حسب رقم المنتج
+
+if(isset($_POST['submit'])){
+    $quantity=$_POST['quantity'];
+    $product_id=$_POST['id'];
+
+    $sqll="UPDATE  cart SET quantity=$quantity WHERE user_id=$user_id AND product_id=$product_id";
+    $con=crud::connect()->prepare($sqll);
+    $con->execute();
+
+
+
+}
+
+//===================================================
+
+// حسب رقم المستخدم product وجدول ال  cart  لعرض المنتجات من جدول ال 
+$db=crud::selectcartTable();
+$db->bindValue(':id',$user_id);
+$db->execute();
+$data= $db->fetchAll(PDO::FETCH_ASSOC);
+
+
 
 ?>
 
@@ -64,14 +89,16 @@ if(isset($_GET['action'])){
                                     <th>Product</th>
                                     <th>Price</th>
                                     <th>Quantity</th>
-                                    <!-- <th>Total</th> -->
+                                    <th>Total</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                             <?php $total=0 ?>
-                            <?php foreach($dbd as $value):?>
-                                <?php if(in_array($value['id'],$product_id)):?>
+                            <?php foreach($data as $value):?>
+                                <?php 
+                                    // if(in_array($value['id'],$product_id)):
+                                    ?>
 
                                 <tr>
                                     <td class="cart__product__item">
@@ -91,15 +118,27 @@ if(isset($_GET['action'])){
                                     </td>
                                     <td class="cart__price"><?php echo $value['price']?> JD</td>
                                     <td class="cart__quantity">
-                                        <div class="pro-qty">
-                                            <input type="text" value="1">
+                                        <div >
+                                            <form action="" method='post'>
+
+                                            <input type="number" name="quantity" value="<?php echo $value['quantity']?>" style="width:40px;border-radius:3px" >
+                                            <input type="hidden" name="id" value="<?php echo $value['id']?>">
+                                            <button type="submit" name="submit" style="border:none;background-color:red;color:white;border-radius:5px;padding:3px">Update</button>
+                                            </form>
+
+
                                         </div>
                                     </td>
-                                    <!-- <td class="cart__total">118.00 JD</td> -->
+                                    <!-- <td>
+                                    <button type="submit" name="submit">ubdate</button>
+                                    </td> -->
+                                    <td class="cart__total"><?php echo $value['price']*$value['quantity']?> JD</td>
                                     <td class="cart__close"><a href="./cart.php?action=remove&id=<?php echo $value['id']?>"><span class="icon_close"></span></a></td>
                                 </tr>
-                                <?php $total+=$value['price'];?>
-                                <?php endif;?>
+                                <?php $total+=$value['price']*$value['quantity'];?>
+                                <?php 
+                                // endif;
+                                ?>
                                 <?php endforeach;?>
                                 <?php $_SESSION['totalPrice']= $total;?>
                                 <!-- <tr>

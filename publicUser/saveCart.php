@@ -8,4 +8,5 @@
 		$_SESSION['message'] = 'Cart updated successfully';
 		header('location: cart.php');
 	}
+
 ?>

@@ -1,6 +1,7 @@
 
 
 <?php include('./includes/header.php');?>
+<?php require('../config.php'); ?>
 <?php
 if(isset($_SESSION['name'])){
    
@@ -11,173 +12,217 @@ if(isset($_SESSION['name'])){
 
     exit();
 }
-?>  
-     
-                
-        
+?> 
 
-            
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
 
-    <!-- Title Page-->
-    <title>Calendar</title>
+<!--category الخاص بقرائة بيانات جدول ال function استدعاء ال  -->
 
-    <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+<?php
+//The last 5 registered on the site
+$con=crud::connect()->prepare("SELECT * FROM
+(
+ SELECT * FROM users ORDER BY id DESC LIMIT 5
+) AS sub
+ORDER BY id ASC");
+$con->execute();
+$last_5_registered= $con->fetchAll(PDO::FETCH_ASSOC);
 
-    <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+// The_numbers_of_people_registered_on_the_site
+$conn=crud::connect()->prepare("SELECT COUNT(users.FullName) The_numbers_of_people_registered_on_the_site FROM users");
+$conn->execute();
+$The_numbers_of_users= $conn->fetchAll(PDO::FETCH_ASSOC);
 
-    <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+// The number of products in each category
+$connn=crud::connect()->prepare("SELECT category, COUNT(*)
+FROM products
+GROUP BY category");
+$connn->execute();
+$The_numbers_of_products= $connn->fetchAll(PDO::FETCH_ASSOC);
 
-    <!-- FullCalendar -->
-    <link href='vendor/fullcalendar-3.10.0/fullcalendar.css' rel='stylesheet' media="all" />
+//The number of products purchased more than 5 times
+$connnn=crud::connect()->prepare("SELECT COUNT(product_id),product_id FROM order_details GROUP BY product_id HAVING COUNT(product_id) > 5");
+$connnn->execute();
+$The_numbers_of_products_repeated= $connnn->fetchAll(PDO::FETCH_ASSOC);
+?>
 
-    <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
 
-    <style type="text/css">
-    /* force class color to override the bootstrap base rule
-       NOTE: adding 'url: #' to calendar makes this unneeded
-     */
-    .fc-event, .fc-event:hover {
-          color: #fff !important;
-          text-decoration: none;
-    }
-    </style>
 
-</head>
-
-<!-- animsition overrides all click events on clickable things like a,
-      since calendar doesn't add href's be default,
-      it leads to odd behaviors like loading 'undefined'
-      moving the class to menus lead to only the menu having the effect -->
-<body class="animsition">
-    <div class="page-wrapper">
-   
-        <div class="page-container">
-     
-
-            <!-- MAIN CONTENT-->
-            <div class="main-content " >
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                        <div class="row">
-                            <div class="col">
-                              <div class="au-card">
-                                <div id="calendar"></div>
-                              </div>
-                            </div><!-- .col -->
+<div class="main-content">
+    <div class="section__content section__content--p30">
+                        <div class="row" style="justify-content:space-between">
+                            <div>
+                                <h2 class="title-5 m-b-35">Statistics</h2>
+                                <hr>
+                                <br>
+                            </div>           
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="copyright">
-                                    <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+        <div class="container-fluid">
+                        <div class="row" style="justify-content:space-between">
+                            <div>
+                                <h3 class="title-5 m-b-35">The numbers of people registered on the site</h3>
+                            </div>           
+                        </div>
+                  
+                    <div class="row m-t-30">
+                                <!-- DATA TABLE-->
+                        <div class="col-lg-12">
+                            <div class="table-responsive table--no-card m-b-30">
+                                <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+
+                                            <tr style="text-align:center">
+                                                <th>The numbers of people registered on the site</th>
+                                           
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $i=1; ?>
+                                            <!-- foreach  طباعة البيانات داخل جدول من خلال  -->
+                                            <?php foreach($The_numbers_of_users as $value):?> 
+
+                                            <tr style="text-align:center">
+                                                <td><?php echo $value['The_numbers_of_people_registered_on_the_site']?></td>                                         
+                                            </tr>
+                                            <?php  endforeach;?>                                     
+                                        </tbody>
+                                </table>
                                 </div>
+                                <!-- END DATA TABLE-->
+                            </div>
+        <div class="container-fluid">
+                        <div class="row" style="justify-content:space-between">
+                            <div>
+                                <h3 class="title-5 m-b-35">The last 5 registered on the site</h3>
+                            </div>           
+                        </div>
+                  
+                    <div class="row m-t-30">
+                                <!-- DATA TABLE-->
+                        <div class="col-lg-12">
+                            <div class="table-responsive table--no-card m-b-30">
+                                <table class="table table-borderless table-striped table-earning">
+                                        <thead>
+
+                                            <tr style="text-align:center">
+                                                <th>#</th>
+                                                <th>name</th>
+                                                <th>phone number</th>
+                                                <th>email</th>
+                                                <th>password</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $i=1; ?>
+                                            <!-- foreach  طباعة البيانات داخل جدول من خلال  -->
+                                            <?php foreach($last_5_registered as $value):?> 
+
+                                            <tr style="text-align:center">
+
+                                                <td><?php echo $i++;?></td>
+                                                <td><?php echo $value['FullName']?></td>
+                                                <td><?php echo $value['PhoneNumber']?></td>
+                                                <td><span class="block-email"><?php echo $value['Email']?></span></td>
+                                                <td><?php echo $value['Password']?></td>                                                
+                                         
+                                            </tr>
+                                            <?php  endforeach;?>                                     
+                                        </tbody>
+                                </table>
+                                </div>
+                                <!-- END DATA TABLE-->
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+        <div class="container-fluid">
+                        <div class="row" style="justify-content:space-between">
+                            <div>
+                                <h3 class="title-5 m-b-35">The number of products in each category</h3>
+                            </div>           
+                        </div>
+                  
+                    <div class="row m-t-30">
+                                <!-- DATA TABLE-->
+                        <div class="col-lg-12">
+                            <div class="table-responsive table--no-card m-b-30">
+                                <table class="table table-borderless table-striped table-earning">
+                                        <thead>
 
-    </div>
+                                            <tr style="text-align:center">
+                                                <th>Category</th>
+                                                <th>Number of product</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $i=1; ?>
+                                            <!-- foreach  طباعة البيانات داخل جدول من خلال  -->
+                                            <?php foreach($The_numbers_of_products as $value):?> 
 
-    <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js">
-    </script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
+                                            <tr style="text-align:center">
 
-    <!-- full calendar requires moment along jquery which is included above -->
-    <script src="vendor/fullcalendar-3.10.0/lib/moment.min.js"></script>
-    <script src="vendor/fullcalendar-3.10.0/fullcalendar.js"></script>
+                                                <td><?php if( $value['category'] == 1){
+                                                    echo "Cat-eye sunglasses";
+                                                    }elseif($value['category'] == 2){
+                                                        echo "Mirrored Sunglasses";
+                                                    }elseif($value['category'] == 3){
+                                                        echo "Sunglass Chain";
+                                                    }elseif($value['category'] == 4){
+                                                        echo "Kids Eyeglasses"; 
+                                                    }else{
+                                                        echo "Sunglass Cases";
+                                                    } ?></td>
+                                               
+                                                <td><?php echo $value['COUNT(*)']?></td>
+                                         
+                                            </tr>
+                                            <?php  endforeach;?>                                     
+                                        </tbody>
+                                </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                            </div>
+                        </div>
+                    </div>
+        <div class="container-fluid">
+                        <div class="row" style="justify-content:space-between">
+                            <div>
+                                <h3 class="title-5 m-b-35">The number of products purchased more than 5 times</h3>
+                            </div>           
+                        </div>
+                  
+                    <div class="row m-t-30">
+                                <!-- DATA TABLE-->
+                        <div class="col-lg-12">
+                            <div class="table-responsive table--no-card m-b-30">
+                                <table class="table table-borderless table-striped table-earning">
+                                        <thead>
 
-    <!-- Main JS-->
-    <script src="js/main.js"></script>
+                                            <tr style="text-align:center">
+                                                <th>Product id</th>
+                                                <th>The number of purchases</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php $i=1; ?>
+                                            <!-- foreach  طباعة البيانات داخل جدول من خلال  -->
+                                            <?php foreach($The_numbers_of_products_repeated as $value):?> 
 
-    <script type="text/javascript">
-$(function() {
-  // for now, there is something adding a click handler to 'a'
-  var tues = moment().day(2).hour(19);
+                                            <tr style="text-align:center">
 
-  // build trival night events for example data
-  var events = [
-    {
-      title: "Special Conference",
-      start: moment().format('YYYY-MM-DD'),
-      url: '#'
-    },
-    {
-      title: "Doctor Appt",
-      start: moment().hour(9).add(2, 'days').toISOString(),
-      url: '#'
-    }
+                                                <td><?php echo $value['product_id']?></td>
+                                                <td><?php echo $value['COUNT(product_id)']?></td>
+                                         
+                                            </tr>
+                                            <?php  endforeach;?>                                     
+                                        </tbody>
+                                </table>
+                                </div>
+                                <!-- END DATA TABLE-->
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+<?php include('./includes/footer.php');?>
 
-  ];
-
-  var trivia_nights = []
-
-  for(var i = 1; i <= 4; i++) {
-    var n = tues.clone().add(i, 'weeks');
-    console.log("isoString: " + n.toISOString());
-    trivia_nights.push({
-      title: 'Trival Night @ Pub XYZ',
-      start: n.toISOString(),
-      allDay: false,
-      url: '#'
-    });
-  }
-
-  // setup a few events
-  $('#calendar').fullCalendar({
-    header: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'month,agendaWeek,agendaDay,listWeek'
-    },
-    events: events.concat(trivia_nights)
-  });
-});
-    </script>
-
-
-</body>
-
-</html>
-<!-- end document-->
-
-            
+             
+                

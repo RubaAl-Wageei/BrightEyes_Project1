@@ -1,7 +1,17 @@
 <?php include('./includes/header.php');?>
 
 <?php require('../config.php'); ?>
+<?php
+if(isset($_SESSION['name'])){
+   
+    // echo "<h1>"."welcome " . $_SESSION['name'] ."</h1>" . "<br>";
+}else{
+    // header("location:http://localhost/BrightEyes_Project1/Admin/login.php");
+    echo "<script>window.location='login.php'</script>";
 
+    exit();
+}
+?> 
 
 <!--user الخاص باستدعاء بيانات جدول ال  function   استدعاء ال  -->
 <?php $db = crud::selectDataUser(); ?>
@@ -18,7 +28,7 @@
                            
                             <div class="table-data__tool">
                                     <div class="table-data__tool-right">
-                                            <a href="./addUser.php"><button class="au-btn au-btn-icon au-btn--green au-btn--small">
+                                            <a href="./addUser.php"><button class="au-btn au-btn-icon au-btn--blue au-btn--small">
                                             <i class="zmdi zmdi-plus"></i>add user</button>
                                             </a>
                                     </div>

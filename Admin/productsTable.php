@@ -41,11 +41,8 @@ include('./includes/header.php');
                                             <tr>
                                                 <th>#</th>
                                                 <th>Product Name</th>
-                                                <th>Price</th>
-                                                <th >images</th>
-                                                <th>description</th>
-                                                <th >category</th>
-                                                <th >Add</th>
+                                                <th>More Details</th>
+                                                <th >Edit</th>
                                                 <th >Delete</th>
                                             </tr>
                                         </thead>
@@ -53,18 +50,17 @@ include('./includes/header.php');
                                         <?php $i=1; ?>
                                         <?php $data = crud::selectProduct(); ?>
                                         <?php foreach($data as $value):?> 
-                                      
+                                       
+                                                       
+                                                        <!-- <td style="border:none;overflow-y:scroll;"><p style="width:100px;"><?php //echo $value['description'];?></p></td>  -->
                                             <tr>
                                                 <td><?php echo $i++;?></td>  
                                                 <td><?php echo $value['productName'];?></td>
-                                                <td><?php echo $value['price'];?></td> 
-                                                <td> <?php echo "<img src='../image/{$value['image']}'style=\"width:150px\">"?></td>
-                                                <td  style="border:none;overflow-x:scroll;"><p style="width:200px;"><?php echo $value['description'];?></p></td> 
-                                                <td><?php echo $value['category'];?></td> 
                                                 <form method="post">
+                                                <td><a href="./ProductsDetails.php?id=<?php echo $value['id'];?>"><span>see more details</span></a></td> 
                                                 <td><a href="./productsEdit.php?id=<?php echo $value['id'];?>"><span>Edit</span></a></td>
-                                                 <td><a href="./deleteProduct.php?id=<?php echo $value['id'];?>" onclick="return confirm ('Are you sure..?')" ><span>Delete</span</a></td>
-                                                 </form>
+                                                <td><a href="./deleteProducts.php?id=<?php echo $value['id'];?>" onclick="return confirm ('Are you sure..?')" ><span>Delete</span</a></td>
+                                                </form>
 
                                             </tr>                        
                                             <?php  endforeach;?>
@@ -86,3 +82,27 @@ include("./includes/footer.php");
     </div>
 
    
+
+
+
+
+
+    <?php
+//     $f = 10;
+//     $s = 20;
+//     $length = strlen($value['description']);
+// //  echo $length;
+    
+// for($i = 0 ; $i<5; $i++){
+
+//     for($x = 0; $x<=$length; $x++){
+//         echo substr($value['description'],$f,$s);
+//         $f= $f+10;
+//         $s= $s+10;
+                                                                                    
+//     }
+//     echo "<br>";
+// }
+
+
+?>

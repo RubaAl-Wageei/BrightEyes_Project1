@@ -60,11 +60,12 @@ if(isset($_SESSION['name'])){
             $con=crud::connect()->prepare($sql);
             $con->execute();
     
-        }}else{
+        } 
+          }else{
             echo "<script>window.location='./login.php'</script>";
 
         
-    }     
+    }      // print_r($_SESSION['cart']);
 
     }
   //------------------------------------------

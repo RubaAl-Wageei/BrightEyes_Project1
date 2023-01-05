@@ -193,11 +193,18 @@ if(isset($_SESSION['cart'])){
                                         <?php $i=1;?>
                                         
                                         <?php foreach($data as $value) :?>
+                                            <?php if($value['discount']== 0){?>
+
                                         <li><?php echo $i?>. <?php echo $value['productName']?> *<?php echo $value['quantity']?> <span><?php echo $value['price']*$value['quantity']?> JD</span></li>
                                         <!-- <li>02. Zip-pockets pebbled<br /> tote briefcase <span>170.00 JD</span></li>
                                         <li>03. Black jean <span>170.00 JD</span></li>
                                         <li>04. Cotton shirt <span>110.00 JD</span></li> -->
                                         <?php $i++?>
+                                        <?php 
+                                }else{?>
+                                    <li><?php echo $i?>. <?php echo $value['productName']?> *<?php echo $value['quantity']?> <span><?php echo $value['new_Price']*$value['quantity']?> JD</span></li>
+                                    <?php }?>
+
                                         <?php endforeach; ?>
                                         
                                     </ul>

@@ -260,7 +260,7 @@ if(isset($_SESSION['name'])){
 
 <!----------------RELATED PRODUCTS section--------------->
             
-            <div class="row">
+            <div class="row col-lg-12">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">
                         <h5>RELATED PRODUCTS</h5>
@@ -268,7 +268,7 @@ if(isset($_SESSION['name'])){
                 </div>
                 <?php $i=1;?>
                 <?php foreach($data_category as $value):?> 
-                <?php if ($i<=4):?>
+                <?php if ($i<=3):?>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     
                     <div class="product__item">

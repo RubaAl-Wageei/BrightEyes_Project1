@@ -43,7 +43,7 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar2">
             <div class="logo">
-                <a href="#">
+                <a href="./index.php">
                     <img src="./images/RIGHT-EYES.png" alt="RIGHT EYES" />
                 </a>
             </div>

@@ -2,7 +2,20 @@
 
 <?php require('../config.php'); ?>
 
+<?php
+if(isset($_SESSION['name'])){
+   
+    // echo "<h1>"."welcome " . $_SESSION['name'] ."</h1>" . "<br>";
+}else{
+    // header("location:http://localhost/BrightEyes_Project1/Admin/login.php");
+    echo "<script>window.location='login.php'</script>";
+
+    exit();
+}
+?> 
+
 <!--category الخاص بقرائة بيانات جدول ال function استدعاء ال  -->
+
 
 <?php $db = crud::selectDataCategort(); ?>
 
@@ -19,7 +32,7 @@
 
                                 <div class="table-data__tool-right">
                                     <a href="http://localhost/BrightEyes_Project1/Admin/addCategory.php">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small"><i class="zmdi zmdi-plus"></i>add category</button>
+                                        <button class="au-btn au-btn-icon au-btn--blue au-btn--small"><i class="zmdi zmdi-plus"></i>add category</button>
                                     </a> 
                                 </div>
                             </div>

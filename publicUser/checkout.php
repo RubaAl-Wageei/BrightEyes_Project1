@@ -3,30 +3,38 @@
 <?php require('../config.php');?>
 
 <?php
+$user_id=$_SESSION['id'];
 
+//----------------------------------------------
 
 if(!isset($_SESSION['name'])){
     echo "<script>window.location='login.php'</script>";
  };
  
+//----------------------------------------------
 
-$dd=crud::selectProductt();
+ $db=crud::selectcartTable();
+ $db->bindValue(':id',$user_id);
+ $db->execute();
+ $data= $db->fetchAll(PDO::FETCH_ASSOC);
+ print_r($data);
+
+
 if(isset($_SESSION['cart'])){
     $item_array_id = array_column($_SESSION['cart'], 'product_id');
 
 };
 
 
-// session_unset();
 ?>
 <?php 
 
 // orders table تخزين الطلب في ال 
     if(isset($_POST['submit'])) {
 
-    $xx = $_SESSION['totalPrice'];
+    $totalPrice = $_SESSION['totalPrice'];
 
-    $sql="INSERT INTO orders (order_id, order_date, user_id, total_price) VALUES (NULL, now(), 1, '$xx');";
+    $sql="INSERT INTO orders (order_id, order_date, user_id, total_price) VALUES (NULL, now(), '$user_id', '$totalPrice');";
 
     $con=crud::connect()->prepare($sql);
 
@@ -39,19 +47,28 @@ if(isset($_SESSION['cart'])){
     $data=$conn->fetch(PDO::FETCH_ASSOC);  // بجيب اول صف fetch  من خلال ال 
     $last_id = $data['order_id'];
 
-    foreach($dd as $value){
-            if(in_array($value['id'],$item_array_id)){
-                $x=$value['id'];
-                $y=$value['price'];
+    $_SESSION['last_order']=$last_id ;
+    $db=crud::selectcartTable();
+    $db->bindValue(':id',$user_id);
+    $db->execute();
+    $data= $db->fetchAll(PDO::FETCH_ASSOC);
+    foreach($data as $value){
+           
+            $id=$value['id'];
+            $price=$value['price'];
+            $quantity=$value['quantity'];
             $sql="INSERT INTO order_details (order_id, product_id, quantity, price) 
-            VALUES ('$last_id', '$x', '1', '$y')";
+            VALUES ('$last_id', '$id', '$quantity', '$price')";
             $insert=crud::connect()->prepare($sql);
             $insert->execute();
-            }
+          
     }           
         unset($_SESSION['cart']);
         unset($_SESSION['totalPrice']);
-        echo "<script>window.location='./index.php'</script>";
+        $con=crud::connect()->prepare("DELETE FROM cart WHERE user_id = :id");
+        $con->bindValue(':id', $user_id);
+        $con->execute();
+        echo "<script>window.location='./orderInvoice.php'</script>";
 
         }
     // }
@@ -174,16 +191,13 @@ if(isset($_SESSION['cart'])){
                                             <span class="top__text__right">Total</span>
                                         </li>
                                         <?php $i=1;?>
-                                        <?php if(isset($item_array_id)) :?>
                                         
-                                        <?php foreach($dd as $value) :?>
-                                            <?php if (in_array($value['id'],$item_array_id)):?>
-                                        <li><?php echo $i?>. <?php echo $value['productName']?> <span><?php echo $value['price']?> JD</span></li>
+                                        <?php foreach($data as $value) :?>
+                                        <li><?php echo $i?>. <?php echo $value['productName']?> *<?php echo $value['quantity']?> <span><?php echo $value['price']*$value['quantity']?> JD</span></li>
                                         <!-- <li>02. Zip-pockets pebbled<br /> tote briefcase <span>170.00 JD</span></li>
                                         <li>03. Black jean <span>170.00 JD</span></li>
                                         <li>04. Cotton shirt <span>110.00 JD</span></li> -->
                                         <?php $i++?>
-                                        <?php endif; ?>
                                         <?php endforeach; ?>
                                         
                                     </ul>
@@ -197,7 +211,7 @@ if(isset($_SESSION['cart'])){
                                         <li>Total <span><?php  echo $_SESSION['totalPrice']; ?> JD
                                         </span></li>
                                     </ul>
-                                </div><?php endif; ?>
+                                </div>
                                 <div class="checkout__order__widget">
                                     <!-- <label for="o-acc">
                                         Create an acount?

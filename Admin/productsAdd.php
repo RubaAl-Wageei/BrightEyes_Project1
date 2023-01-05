@@ -34,11 +34,11 @@ include('./includes/header.php');
         //  echo "the file extenyion is not supported";
      }
 
+     $succses="";
 
 
 
      // Insert the products value in the table colums 
-
 
     $P=crud::connect()->prepare('INSERT INTO products(productName, price, image,  description, category) VALUE (:pName, :pPrice,:pImage, :pDescription, :pCategory)');
 

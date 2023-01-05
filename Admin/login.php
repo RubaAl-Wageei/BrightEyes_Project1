@@ -7,6 +7,15 @@
 <?php require('../config.php'); ?>
 
 <?php 
+
+
+
+
+if(isset($_GET['logout'])){
+    unset($_SESSION['id']);
+    session_destroy();
+    echo "<script>window.location='./login.php'</script>";}
+
 if(isset($_POST['submit'])){
 
 $email=$_POST['email'];

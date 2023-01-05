@@ -24,16 +24,15 @@
 
     if(isset($_POST['add'])){
 
-
+if(isset($_SESSION['name'])){
         if(isset($_SESSION['cart'])){ 
             $item_array_id = array_column($_SESSION['cart'], 'product_id');
-            // echo $_SESSION['id_category'];
-            // print_r( $item_array_id);
+          
             
                 if(in_array($_POST['product_id'],$item_array_id)){
                 echo "<script>alert('product is already added in the cart')</script>";
-                // echo "<script>window.location='./product.php?action=category&id=".$_SESSION['id_category']."'"."</script>";
-                }else{
+
+            }else{
                     $count=count($_SESSION['cart']);
                     $item_array=array(
                         'product_id'=>$_POST['product_id'],
@@ -61,8 +60,11 @@
             $con=crud::connect()->prepare($sql);
             $con->execute();
     
-        } 
-                // print_r($_SESSION['cart']);
+        }}else{
+            echo "<script>window.location='./login.php'</script>";
+
+        
+    }     
 
     }
   //------------------------------------------

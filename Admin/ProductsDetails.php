@@ -41,7 +41,7 @@ include('./includes/header.php');
                                         <strong>Product Details</strong> 
                                     </div>
                           
-                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" enctype="multipart/form-data">
+                                        <form action="" method="post" enctype="multipart/form-data" class="form-horizontal" enctype="multipart/form-data" style="padding:22px;">
                                         <div class="row form-group">
                                                 <div class="col col-md-3">
                                                     <label for="text-input" class=" form-control-label">Product Name</label>

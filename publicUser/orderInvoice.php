@@ -98,6 +98,25 @@ $data= $db->fetchAll(PDO::FETCH_ASSOC);
                                 </tr>
                                 <tr>
                                     <td class="content-block">
+                                      <?php if($total>50 && $total<200){
+                                        echo "<p style='color:red;margen:0'>Congratulations you earned the free shipping !";
+                                        echo "<p style='color:red;margen:0'>thank you for shopping with us</p>";
+                                      }
+                                      ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                      <?php if($total>200){
+                                        echo "<p style='color:red;margen:0'>Congratulations you earned the free shipping";
+                                        echo "<p style='color:red;'> And entered the monthly prize draw !</p>";
+                                        echo "<p style='color:red;margen:0'>thank you for shopping with us</p>";
+                                      }
+                                      ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
                                         <a href="./index.php">Home page</a>
                                     </td>
                                 </tr>

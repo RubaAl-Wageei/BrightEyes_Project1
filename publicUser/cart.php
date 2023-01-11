@@ -22,6 +22,7 @@ if(isset($_GET['action'])){
     $db->bindValue(':user_id',$user_id);
     $db->bindValue(':product_id',$id);
     $db->execute();
+    
 
 
     // print_r($_SESSION['cart']);

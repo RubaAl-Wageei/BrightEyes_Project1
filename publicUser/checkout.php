@@ -10,7 +10,6 @@ $user_id=$_SESSION['id'];
 if(!isset($_SESSION['name'])){
     echo "<script>window.location='login.php'</script>";
  };
- 
 //----------------------------------------------
 
  $db=crud::selectcartTable();

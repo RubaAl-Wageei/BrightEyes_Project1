@@ -26,7 +26,12 @@ if(isset($_SESSION['name'])){
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
-                                            
+                                        <div class="table-data__tool-right">
+                                        <form method="post">
+                                        <button class="au-btn au-btn-icon au-btn--blue au-btn--small"><a href="discount.php" style="color:white;">
+                                       Discount page</a></button>
+                                        </form>
+                                    </div>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <div class="rs-select2--light rs-select2--sm">

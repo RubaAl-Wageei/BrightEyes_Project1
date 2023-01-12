@@ -100,7 +100,7 @@ public static function selectComments(){
 }
 // function cart table
 public static function selectcartTable(){
-    $sql="SELECT products.id,products.productName,products.title,products.image,products.price,cart.quantity
+    $sql="SELECT products.id,products.new_Price,products.discount,products.productName,products.title,products.image,products.price,cart.quantity
     FROM products
     INNER JOIN cart 
     ON products.id=cart.product_id

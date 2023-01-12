@@ -5,7 +5,7 @@
 
 $lastOrder=$_SESSION['last_order'];
 
-$sql="SELECT products.productName,order_details.quantity,order_details.price
+$sql="SELECT products.productName,products.new_Price,products.discount,order_details.quantity,order_details.price
 FROM products
 INNER JOIN order_details
 ON order_details.product_id=products.id
@@ -60,13 +60,29 @@ $data= $db->fetchAll(PDO::FETCH_ASSOC);
                                                                 <th class="alignright">Price</th>
                                                             </tr>
                                                             <?php $total=0;?>
-                                                         <?php  foreach($data as $value):?>   
+                                                         <?php  foreach($data as $value):?> 
+                                                            <?php if($value['discount']== 0){?>
+
+
                                                         <tr>
                                                             <td><?php echo $value['productName']; ?> <span style="color:red;">  *<?php echo $value['quantity']; ?> </span></td>
                                                             <td class="alignright"> <?php echo $value['price']*$value['quantity']; ?> JD</td>
                                                         </tr>
 
                                                         <?php $total+= $value['price']*$value['quantity'];?>
+                                                        <?php }else{?>
+
+                                                            
+
+                                                        <tr>
+                                                            <td><?php echo $value['productName']; ?> <span style="color:red;">  *<?php echo $value['quantity']; ?> </span></td>
+                                                            <td class="alignright"> <?php echo $value['new_Price']*$value['quantity']; ?> JD</td>
+                                                        </tr>
+
+                                                        <?php $total+= $value['new_Price']*$value['quantity'];?>
+
+
+                                                            <?php }?>
 
                                                         <?php endforeach;?>
                                                     
@@ -78,6 +94,25 @@ $data= $db->fetchAll(PDO::FETCH_ASSOC);
                                                 </td>
                                             </tr>
                                         </tbody></table>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                      <?php if($total>50 && $total<200){
+                                        echo "<p style='color:red;margen:0'>Congratulations you earned the free shipping !";
+                                        echo "<p style='color:red;margen:0'>thank you for shopping with us</p>";
+                                      }
+                                      ?>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="content-block">
+                                      <?php if($total>200){
+                                        echo "<p style='color:red;margen:0'>Congratulations you earned the free shipping";
+                                        echo "<p style='color:red;'> And entered the monthly prize draw !</p>";
+                                        echo "<p style='color:red;margen:0'>thank you for shopping with us</p>";
+                                      }
+                                      ?>
                                     </td>
                                 </tr>
                                 <tr>

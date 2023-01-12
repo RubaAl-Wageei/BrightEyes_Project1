@@ -112,7 +112,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
                     <div class="login-content">
                         <div class="login-logo">
                             <a href="#">
-                                <img src="./images/BRIGHT-EYES ADMIN.png" alt="CoolAdmin">
+                                <img src="./images/RIGHT-EYES.png" alt="CoolAdmin">
                             </a>
                         </div>
                         <div class="login-form">
@@ -149,7 +149,7 @@ if(!empty($_POST['email'])&&!empty($_POST['password'])){
                                     <label>Password</label>
                                     <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
                                 </div>
-                                <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit" name="submit">sign in</button>
+                                <button class="au-btn au-btn--block au-btn--blue m-b-20" type="submit" name="submit">sign in</button>
 
                             </form>
                             <div class="register-link">

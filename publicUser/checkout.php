@@ -10,14 +10,13 @@ $user_id=$_SESSION['id'];
 if(!isset($_SESSION['name'])){
     echo "<script>window.location='login.php'</script>";
  };
- 
 //----------------------------------------------
 
  $db=crud::selectcartTable();
  $db->bindValue(':id',$user_id);
  $db->execute();
  $data= $db->fetchAll(PDO::FETCH_ASSOC);
- print_r($data);
+//  print_r($data);
 
 
 if(isset($_SESSION['cart'])){

@@ -16,7 +16,6 @@
                     </div>
                 </div>
             </div>
-   
         </div>
     </div>
 </section>
@@ -42,16 +41,12 @@
                 </ul>
             </div> -->
         </div>
-      
-
         <?php 
 // to get the datat from data base 
-       $data = crud::selectProduct();
+$data = crud::selectProduct();
 
-   ?>
-       
-      
-       <!-- to print values from data base i used discount = 0 continue to display just the items on discount in my data base !-->
+?>
+    <!-- to print values from data base i used discount = 0 continue to display just the items on discount in my data base !-->
         <div class="row property__gallery">
             <?php foreach($data as $value): ?>
                 <?php if($value['discount']== 0){continue;}?>
@@ -70,7 +65,6 @@
                         <h6><a href="productDetails.php?pro_id=<?php echo $ID; ?>"> <?php echo $value['title'] ?> <br>
                         <?php echo $value['productName'] ?>
                             </a></h6>
-                  
                         <div class="product__price"><?php echo $value['new_Price'].".00 JD";?><span><?php echo $value['price'].".00 JD";?></span></div>
                     </div>
                 </div>

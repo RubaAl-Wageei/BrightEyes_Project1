@@ -27,9 +27,14 @@ if(isset($_SESSION['cart'])){
 
 ?>
 <?php 
-
+$error="";
 // orders table تخزين الطلب في ال 
     if(isset($_POST['submit'])) {
+
+if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['country'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])&&!empty($_POST['phone'])&&!empty($_POST['email'])&&!empty($_POST('accountPassword'))&&!empty($_POST('notes'))){
+
+
+
 
     $totalPrice = $_SESSION['totalPrice'];
 
@@ -69,8 +74,10 @@ if(isset($_SESSION['cart'])){
         $con->execute();
         echo "<script>window.location='./orderInvoice.php'</script>";
 
+        }else{
+            $error="all feild must be not empty";
         }
-    // }
+    }
 
 ?>
 
@@ -107,48 +114,48 @@ if(isset($_SESSION['cart'])){
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>First Name <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="firstName">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Last Name <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="lastName">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>Country <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="country">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Address <span>*</span></p>
-                                    <input type="text" placeholder="Street Address">
+                                    <input type="text" placeholder="Street Address" name="address">
                                     <input type="text" placeholder="Apartment. suite, unite ect ( optinal )">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Town/City <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="city">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Country/State <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="state">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Postcode/Zip <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="zip">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Phone <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="phone">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Email <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="email">
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -163,7 +170,7 @@ if(isset($_SESSION['cart'])){
                                     </div>
                                     <div class="checkout__form__input">
                                         <p>Account Password <span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" name="accountPassword">
                                     </div>
                                     <div class="checkout__form__checkbox">
                                         <label for="note">
@@ -175,7 +182,7 @@ if(isset($_SESSION['cart'])){
                                     <div class="checkout__form__input">
                                         <p>Oder notes <span>*</span></p>
                                         <input type="text"
-                                        placeholder="Note about your order, e.g, special noe for delivery">
+                                        placeholder="Note about your order, e.g, special noe for delivery" name="notes">
                                     </div>
                                 </div>
                             </div>
@@ -236,6 +243,7 @@ if(isset($_SESSION['cart'])){
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
+                                    <?php if(!empty($error)){echo "<p style='color:red;'> $error </p>";}?>
                                 </div>
                                 <button type="submit" class="site-btn" name="submit">Place oder</button>
                             </div>

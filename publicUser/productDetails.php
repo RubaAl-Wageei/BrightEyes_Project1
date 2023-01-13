@@ -4,7 +4,7 @@
 
 
 <?php 
-
+$product_found="";
 // URL الموجود في ال id لاحضار اسم الكاتيجوري من خلال ال 
     if(isset($_GET['pro_id'])){
 
@@ -30,7 +30,8 @@ if(isset($_SESSION['name'])){
           
             
                 if(in_array($_POST['product_id'],$item_array_id)){
-                echo "<script>alert('product is already added in the cart')</script>";
+                // echo "<script>alert('product is already added in the cart')</script>";
+                $product_found="product is already added in the cart";
 
             }else{
                     $count=count($_SESSION['cart']);
@@ -176,7 +177,8 @@ if(isset($_SESSION['name'])){
                                 <?php }?> 
                         <p><?php echo $value['description']?></p>
                         <div class="product__details__button">
-                       
+                        <?php if(!empty($product_found)){echo "<p style='color:red;font-size:1.25em'> $product_found </p>";}?>
+
                             <button type="submit" name="add" class="cart-btn" style="border:none;">Add to Cart </button>
                             <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
                             <ul>

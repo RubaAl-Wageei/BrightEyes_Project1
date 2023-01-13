@@ -35,6 +35,13 @@
 
     <!-- Main CSS-->
     <link href="css/theme.css" rel="stylesheet" media="all">
+    <style>
+        form p{
+            color: red;
+            font-size: 0.8em;
+            margin-left: 10px;
+        }
+    </style>
 
 </head>
 
@@ -69,10 +76,10 @@
                                     <a href="./users.php">
                                         <i class="fas fa-tachometer-alt"></i>users</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="http://localhost/BrightEyes_Project1/admin/addUser.php">
                                         <i class="fas fa-tachometer-alt"></i>add user</a>
-                                </li>
+                                </li> -->
                                 <!-- <li>
                                     <a href="./editUser.php">
                                         <i class="fas fa-tachometer-alt"></i>edit user</a>
@@ -92,10 +99,10 @@
                                     <a href="http://localhost/BrightEyes_Project1/Admin/category.php">
                                         <i class="fas fa-tachometer-alt"></i>category table</a>
                                 </li>
-                                <li>
+                                <!-- <li>
                                     <a href="http://localhost/BrightEyes_Project1/Admin/addCategory.php">
                                         <i class="fas fa-tachometer-alt"></i>add category</a>
-                                </li>
+                                </li> -->
                                 <!-- <li>
                                     <a href="http://localhost/BrightEyes_Project1/Admin/editCategory.php">
                                         <i class="fas fa-tachometer-alt"></i>edit category</a>

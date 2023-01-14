@@ -31,7 +31,7 @@ $error="";
 // orders table تخزين الطلب في ال 
     if(isset($_POST['submit'])) {
 
-if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['country'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])&&!empty($_POST['phone'])&&!empty($_POST['email'])&&!empty($_POST['accountPassword'])&&!empty($_POST['notes'])){
+if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['country'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])&&!empty($_POST['phone'])&&!empty($_POST['email'])&&!empty($_POST['notes'])){
 
 
 
@@ -166,17 +166,17 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
                             </div>
                             <div class="col-lg-12">
                                 <div class="checkout__form__checkbox">
-                                    <label for="acc">
+                                    <!-- <label for="acc">
                                         Create an account?
                                         <input type="checkbox" id="acc">
                                         <span class="checkmark"></span>
                                     </label>
                                     <p>Create am account by entering the information below. If you are a returning
-                                        customer login at the <br />top of the page</p>
+                                        customer login at the <br />top of the page</p> -->
                                     </div>
                                     <div class="checkout__form__input">
-                                        <p>Account Password <span>*</span></p>
-                                        <input type="text" name="accountPassword">
+                                        <!-- <p>Account Password <span>*</span></p>
+                                        <input type="text" name="accountPassword"> -->
                                     </div>
                                     <div class="checkout__form__checkbox">
                                         <label for="note">

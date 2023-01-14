@@ -74,7 +74,7 @@ if(isset($_SESSION['name'])){
                                                 <form method="post">
                                                 <td><a href="./ProductsDetails.php?id=<?php echo $value['id'];?>"><span>see more details</span></a></td> 
                                                 <td><a href="./productsEdit.php?id=<?php echo $value['id'];?>"><span>Edit</span></a></td>
-                                                <td><a href="./deleteProducts.php?id=<?php echo $value['id'];?>" onclick="return confirm ('Are you sure..?')" ><span>Delete</span</a></td>
+                                                <td><a href="./deleteProduct.php?id=<?php echo $value['id'];?>" onclick="return confirm ('Are you sure..?')" ><span>Delete</span</a></td>
                                                 </form>
 
                                             </tr>                        

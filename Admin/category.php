@@ -59,7 +59,7 @@ if(isset($_SESSION['name'])){
                                             <tr style="text-align:center">
                                                 <td><?php echo $value['category_id']?></td>
                                                 <td><?php echo $value['category_name']?></td>
-                                                <td><?php echo "<img src='{$value['category_image']}'style=\"width:100px\">" ?></td>
+                                                <td><?php echo "<img src='../image/{$value['category_image']}'style=\"width:100px\">" ?></td>
                                                 <td>
                                                         <div class="table-data-feature" style="justify-content:center">
                                                         

@@ -16,7 +16,7 @@ if(!isset($_SESSION['name'])){
  $db->bindValue(':id',$user_id);
  $db->execute();
  $data= $db->fetchAll(PDO::FETCH_ASSOC);
-//  print_r($data);
+
 
 
 if(isset($_SESSION['cart'])){
@@ -58,6 +58,7 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
     $db->execute();
     $data= $db->fetchAll(PDO::FETCH_ASSOC);
     foreach($data as $value){
+        
            if($value['discount']==1){
             $price=$value['new_Price'];
            }else{

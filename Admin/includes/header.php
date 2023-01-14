@@ -10,6 +10,7 @@
     <meta name="description" content="au theme template">
     <meta name="author" content="Hau Nguyen">
     <meta name="keywords" content="au theme template">
+    <link rel="icon" type="image/x-icon" href="..\Admin\images\logo_1.png">
 
     <!-- Title Page-->
     <title>RIGHT EYES</title>

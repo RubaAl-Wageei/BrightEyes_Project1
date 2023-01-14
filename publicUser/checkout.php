@@ -31,7 +31,7 @@ $error="";
 // orders table تخزين الطلب في ال 
     if(isset($_POST['submit'])) {
 
-if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['country'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])&&!empty($_POST['phone'])&&!empty($_POST['email'])&&!empty($_POST('accountPassword'))&&!empty($_POST('notes'))){
+if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['country'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])&&!empty($_POST['phone'])&&!empty($_POST['email'])&&!empty($_POST['accountPassword'])&&!empty($_POST['notes'])){
 
 
 
@@ -57,9 +57,14 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
     $db->execute();
     $data= $db->fetchAll(PDO::FETCH_ASSOC);
     foreach($data as $value){
-           
-            $id=$value['id'];
+           if($value['discount']==1){
+            $price=$value['new_Price'];
+           }else{
             $price=$value['price'];
+
+           }
+            $id=$value['id'];
+            
             $quantity=$value['quantity'];
             $sql="INSERT INTO order_details (order_id, product_id, quantity, price) 
             VALUES ('$last_id', '$id', '$quantity', '$price')";

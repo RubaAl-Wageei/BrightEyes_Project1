@@ -246,7 +246,7 @@ if(isset($_SESSION['name'])){
                     </textarea>
                 </div>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                  <input type="submit" name="submit" style="color:white;background-color:red;badding:2px;border-radius:5px;border:none;font-size:1.5em">
+                  <input type="submit" name="submit" style="color:white;background-color:red; padding:2px;border-radius:5px;border:none;font-size:1.5em">
                 </div>
                 <?php endif;?>
                 <?php if(!isset($_SESSION['name'])):?>

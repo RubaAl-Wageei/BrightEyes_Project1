@@ -36,6 +36,7 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
 
 
 
+
     $totalPrice = $_SESSION['totalPrice'];
 
     $sql="INSERT INTO orders (order_id, order_date, user_id, total_price) VALUES (NULL, now(), '$user_id', '$totalPrice');";
@@ -80,7 +81,7 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
         echo "<script>window.location='./orderInvoice.php'</script>";
 
         }else{
-            $error="all feild must be not empty";
+            $error="All field must be not empty";
         }
     }
 
@@ -136,7 +137,7 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
                                 <div class="checkout__form__input">
                                     <p>Address <span>*</span></p>
                                     <input type="text" placeholder="Street Address" name="address">
-                                    <input type="text" placeholder="Apartment. suite, unite ect ( optinal )">
+                                    <input type="text" placeholder="Apartment. suite, unite ect ( optional )">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Town/City <span>*</span></p>
@@ -166,11 +167,11 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
                             <div class="col-lg-12">
                                 <div class="checkout__form__checkbox">
                                     <label for="acc">
-                                        Create an acount?
+                                        Create an account?
                                         <input type="checkbox" id="acc">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <p>Create am acount by entering the information below. If you are a returing
+                                    <p>Create am account by entering the information below. If you are a returning
                                         customer login at the <br />top of the page</p>
                                     </div>
                                     <div class="checkout__form__input">
@@ -232,11 +233,11 @@ if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['cou
                                 </div>
                                 <div class="checkout__order__widget">
                                     <!-- <label for="o-acc">
-                                        Create an acount?
+                                        Create an account?
                                         <input type="checkbox" id="o-acc">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <p>Create am acount by entering the information below. If you are a returing customer
+                                    <p>Create am account by entering the information below. If you are a returning customer
                                     login at the top of the page.</p>
                                     <label for="check-payment">
                                         Cheque payment

@@ -10,14 +10,13 @@ $user_id=$_SESSION['id'];
 if(!isset($_SESSION['name'])){
     echo "<script>window.location='login.php'</script>";
  };
- 
 //----------------------------------------------
 
  $db=crud::selectcartTable();
  $db->bindValue(':id',$user_id);
  $db->execute();
  $data= $db->fetchAll(PDO::FETCH_ASSOC);
-//  print_r($data);
+
 
 
 if(isset($_SESSION['cart'])){
@@ -28,9 +27,15 @@ if(isset($_SESSION['cart'])){
 
 ?>
 <?php 
-
+$error="";
 // orders table تخزين الطلب في ال 
     if(isset($_POST['submit'])) {
+
+if(!empty($_POST['firstName']) && !empty($_POST['lastName'])&&!empty($_POST['country'])&&!empty($_POST['address'])&&!empty($_POST['city'])&&!empty($_POST['state'])&&!empty($_POST['zip'])&&!empty($_POST['phone'])&&!empty($_POST['email'])&&!empty($_POST['accountPassword'])&&!empty($_POST['notes'])){
+
+
+
+
 
     $totalPrice = $_SESSION['totalPrice'];
 
@@ -54,8 +59,14 @@ if(isset($_SESSION['cart'])){
     $data= $db->fetchAll(PDO::FETCH_ASSOC);
     foreach($data as $value){
         
-            $id=$value['id'];
+           if($value['discount']==1){
+            $price=$value['new_Price'];
+           }else{
             $price=$value['price'];
+
+           }
+            $id=$value['id'];
+            
             $quantity=$value['quantity'];
             $sql="INSERT INTO order_details (order_id, product_id, quantity, price) 
             VALUES ('$last_id', '$id', '$quantity', '$price')";
@@ -70,8 +81,10 @@ if(isset($_SESSION['cart'])){
         $con->execute();
         echo "<script>window.location='./orderInvoice.php'</script>";
 
+        }else{
+            $error="All field must be not empty";
         }
-    // }
+    }
 
 ?>
 
@@ -108,63 +121,63 @@ if(isset($_SESSION['cart'])){
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>First Name <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="firstName">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Last Name <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="lastName">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="checkout__form__input">
                                     <p>Country <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="country">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Address <span>*</span></p>
-                                    <input type="text" placeholder="Street Address">
-                                    <input type="text" placeholder="Apartment. suite, unite ect ( optinal )">
+                                    <input type="text" placeholder="Street Address" name="address">
+                                    <input type="text" placeholder="Apartment. suite, unite ect ( optional )">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Town/City <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="city">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Country/State <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="state">
                                 </div>
                                 <div class="checkout__form__input">
                                     <p>Postcode/Zip <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="zip">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Phone <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="phone">
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="checkout__form__input">
                                     <p>Email <span>*</span></p>
-                                    <input type="text">
+                                    <input type="text" name="email">
                                 </div>
                             </div>
                             <div class="col-lg-12">
                                 <div class="checkout__form__checkbox">
                                     <label for="acc">
-                                        Create an acount?
+                                        Create an account?
                                         <input type="checkbox" id="acc">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <p>Create am acount by entering the information below. If you are a returing
+                                    <p>Create am account by entering the information below. If you are a returning
                                         customer login at the <br />top of the page</p>
                                     </div>
                                     <div class="checkout__form__input">
                                         <p>Account Password <span>*</span></p>
-                                        <input type="text">
+                                        <input type="text" name="accountPassword">
                                     </div>
                                     <div class="checkout__form__checkbox">
                                         <label for="note">
@@ -176,7 +189,7 @@ if(isset($_SESSION['cart'])){
                                     <div class="checkout__form__input">
                                         <p>Oder notes <span>*</span></p>
                                         <input type="text"
-                                        placeholder="Note about your order, e.g, special noe for delivery">
+                                        placeholder="Note about your order, e.g, special noe for delivery" name="notes">
                                     </div>
                                 </div>
                             </div>
@@ -193,11 +206,18 @@ if(isset($_SESSION['cart'])){
                                         <?php $i=1;?>
                                         
                                         <?php foreach($data as $value) :?>
+                                            <?php if($value['discount']== 0){?>
+
                                         <li><?php echo $i?>. <?php echo $value['productName']?> *<?php echo $value['quantity']?> <span><?php echo $value['price']*$value['quantity']?> JD</span></li>
                                         <!-- <li>02. Zip-pockets pebbled<br /> tote briefcase <span>170.00 JD</span></li>
                                         <li>03. Black jean <span>170.00 JD</span></li>
                                         <li>04. Cotton shirt <span>110.00 JD</span></li> -->
                                         <?php $i++?>
+                                        <?php 
+                                }else{?>
+                                    <li><?php echo $i?>. <?php echo $value['productName']?> *<?php echo $value['quantity']?> <span><?php echo $value['new_Price']*$value['quantity']?> JD</span></li>
+                                    <?php }?>
+
                                         <?php endforeach; ?>
                                         
                                     </ul>
@@ -214,11 +234,11 @@ if(isset($_SESSION['cart'])){
                                 </div>
                                 <div class="checkout__order__widget">
                                     <!-- <label for="o-acc">
-                                        Create an acount?
+                                        Create an account?
                                         <input type="checkbox" id="o-acc">
                                         <span class="checkmark"></span>
                                     </label>
-                                    <p>Create am acount by entering the information below. If you are a returing customer
+                                    <p>Create am account by entering the information below. If you are a returning customer
                                     login at the top of the page.</p>
                                     <label for="check-payment">
                                         Cheque payment
@@ -230,6 +250,7 @@ if(isset($_SESSION['cart'])){
                                         <input type="checkbox" id="paypal">
                                         <span class="checkmark"></span>
                                     </label>
+                                    <?php if(!empty($error)){echo "<p style='color:red;'> $error </p>";}?>
                                 </div>
                                 <button type="submit" class="site-btn" name="submit">Place oder</button>
                             </div>

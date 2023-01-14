@@ -57,7 +57,7 @@ $The_numbers_of_products_repeated= $connnn->fetchAll(PDO::FETCH_ASSOC);
                                 <br>
                             </div>           
                         </div>
-        <div class="container-fluid">
+        <!-- <div class="container-fluid">
                         <div class="row" style="justify-content:space-between">
                             <div>
                                 <h3 class="title-5 m-b-35">The numbers of people registered on the site</h3>
@@ -65,7 +65,6 @@ $The_numbers_of_products_repeated= $connnn->fetchAll(PDO::FETCH_ASSOC);
                         </div>
                   
                     <div class="row m-t-30">
-                                <!-- DATA TABLE-->
                         <div class="col-lg-12">
                             <div class="table-responsive table--no-card m-b-30">
                                 <table class="table table-borderless table-striped table-earning">
@@ -78,7 +77,6 @@ $The_numbers_of_products_repeated= $connnn->fetchAll(PDO::FETCH_ASSOC);
                                         </thead>
                                         <tbody>
                                         <?php $i=1; ?>
-                                            <!-- foreach  طباعة البيانات داخل جدول من خلال  -->
                                             <?php foreach($The_numbers_of_users as $value):?> 
 
                                             <tr style="text-align:center">
@@ -88,8 +86,7 @@ $The_numbers_of_products_repeated= $connnn->fetchAll(PDO::FETCH_ASSOC);
                                         </tbody>
                                 </table>
                                 </div>
-                                <!-- END DATA TABLE-->
-                            </div>
+                            </div> -->
         <div class="container-fluid">
                         <div class="row" style="justify-content:space-between">
                             <div>

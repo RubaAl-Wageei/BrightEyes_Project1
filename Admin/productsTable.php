@@ -1,7 +1,17 @@
 <?php
 include('./includes/header.php');
 ?>
+<?php
+if(isset($_SESSION['name'])){
+   
+    // echo "<h1>"."welcome " . $_SESSION['name'] ."</h1>" . "<br>";
+}else{
+    // header("location:http://localhost/BrightEyes_Project1/Admin/login.php");
+    echo "<script>window.location='login.php'</script>";
 
+    exit();
+}
+?> 
  
     <?php require('../config.php');  ?>
 
@@ -16,7 +26,12 @@ include('./includes/header.php');
                                 <div class="table-data__tool">
                                     <div class="table-data__tool-left">
                                         <div class="rs-select2--light rs-select2--md">
-                                            
+                                        <div class="table-data__tool-right">
+                                        <form method="post">
+                                        <button class="au-btn au-btn-icon au-btn--blue au-btn--small"><a href="discount.php" style="color:white;">
+                                       Discount page</a></button>
+                                        </form>
+                                    </div>
                                             <div class="dropDownSelect2"></div>
                                         </div>
                                         <div class="rs-select2--light rs-select2--sm">
@@ -26,7 +41,7 @@ include('./includes/header.php');
                                     </div>
                                     <div class="table-data__tool-right">
                                         <form method="post">
-                                        <button class="au-btn au-btn-icon au-btn--green au-btn--small"><a href="productsAdd.php" style="color:white;">
+                                        <button class="au-btn au-btn-icon au-btn--blue au-btn--small"><a href="productsAdd.php" style="color:white;">
                                             <i class="zmdi zmdi-plus"></i>add item</a></button>
                                         </form>
                                     </div>

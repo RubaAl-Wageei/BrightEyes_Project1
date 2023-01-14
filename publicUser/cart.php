@@ -22,6 +22,7 @@ if(isset($_GET['action'])){
     $db->bindValue(':user_id',$user_id);
     $db->bindValue(':product_id',$id);
     $db->execute();
+    
 
 
     // print_r($_SESSION['cart']);
@@ -96,6 +97,8 @@ $data= $db->fetchAll(PDO::FETCH_ASSOC);
                             <tbody>
                             <?php $total=0 ?>
                             <?php foreach($data as $value):?>
+                                <?php if($value['discount']== 0){?>
+
                                 <?php 
                                     // if(in_array($value['id'],$product_id)):
                                     ?>
@@ -116,6 +119,7 @@ $data= $db->fetchAll(PDO::FETCH_ASSOC);
                                             </div>
                                         </div>
                                     </td>
+
                                     <td class="cart__price"><?php echo $value['price']?> JD</td>
                                     <td class="cart__quantity">
                                         <div >
@@ -137,8 +141,45 @@ $data= $db->fetchAll(PDO::FETCH_ASSOC);
                                 </tr>
                                 <?php $total+=$value['price']*$value['quantity'];?>
                                 <?php 
-                                // endif;
-                                ?>
+                                }else{?>
+                                  <tr>
+                                    <td class="cart__product__item">
+                                        <img src="../image/<?php echo $value['image']?>" alt="" style="width:100px">
+                                        <div class="cart__product__item__title">
+                                            <h6><?php echo $value['title']?><br>
+                                            <?php echo $value['productName']?>
+                                                </h6>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </td>
+
+                                    <td class="cart__price"><?php echo $value['new_Price']?> JD</td>
+                                    <td class="cart__quantity">
+                                        <div >
+                                            <form action="" method='post'>
+
+                                            <input type="number" name="quantity" value="<?php echo $value['quantity']?>" style="width:40px;border-radius:3px" >
+                                            <input type="hidden" name="id" value="<?php echo $value['id']?>">
+                                            <button type="submit" name="submit" style="border:none;background-color:red;color:white;border-radius:5px;padding:3px">Update</button>
+                                            </form>
+
+
+                                        </div>
+                                    </td>
+                                    <!-- <td>
+                                    <button type="submit" name="submit">ubdate</button>
+                                    </td> -->
+                                    <td class="cart__total"><?php echo $value['new_Price']*$value['quantity']?> JD</td>
+                                    <td class="cart__close"><a href="./cart.php?action=remove&id=<?php echo $value['id']?>"><span class="icon_close"></span></a></td>
+                                </tr>
+                                <?php $total+=$value['new_Price']*$value['quantity'];?>
+                                <?php }?>
                                 <?php endforeach;?>
                                 <?php $_SESSION['totalPrice']= $total;?>
                                 <!-- <tr>

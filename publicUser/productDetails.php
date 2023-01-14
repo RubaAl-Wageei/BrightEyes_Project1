@@ -4,7 +4,7 @@
 
 
 <?php 
-
+$product_found="";
 // URL الموجود في ال id لاحضار اسم الكاتيجوري من خلال ال 
     if(isset($_GET['pro_id'])){
 
@@ -30,7 +30,8 @@ if(isset($_SESSION['name'])){
           
             
                 if(in_array($_POST['product_id'],$item_array_id)){
-                echo "<script>alert('product is already added in the cart')</script>";
+                // echo "<script>alert('product is already added in the cart')</script>";
+                $product_found="product is already added in the cart";
 
             }else{
                     $count=count($_SESSION['cart']);
@@ -60,11 +61,12 @@ if(isset($_SESSION['name'])){
             $con=crud::connect()->prepare($sql);
             $con->execute();
     
-        }}else{
+        } 
+          }else{
             echo "<script>window.location='./login.php'</script>";
 
         
-    }     
+    }      // print_r($_SESSION['cart']);
 
     }
   //------------------------------------------
@@ -175,7 +177,8 @@ if(isset($_SESSION['name'])){
                                 <?php }?> 
                         <p><?php echo $value['description']?></p>
                         <div class="product__details__button">
-                       
+                        <?php if(!empty($product_found)){echo "<p style='color:red;font-size:1.25em'> $product_found </p>";}?>
+
                             <button type="submit" name="add" class="cart-btn" style="border:none;">Add to Cart </button>
                             <input type="hidden" name="product_id" value="<?php echo $value['id']?>">
                             <ul>
@@ -243,7 +246,7 @@ if(isset($_SESSION['name'])){
                     </textarea>
                 </div>
                 <div style="display: flex; justify-content: center; align-items: center;">
-                  <input type="submit" name="submit" style="color:white;background-color:red;badding:2px;border-radius:5px;border:none;font-size:1.5em">
+                  <input type="submit" name="submit" style="color:white;background-color:red; padding:2px;border-radius:5px;border:none;font-size:1.5em">
                 </div>
                 <?php endif;?>
                 <?php if(!isset($_SESSION['name'])):?>
@@ -259,7 +262,7 @@ if(isset($_SESSION['name'])){
 
 <!----------------RELATED PRODUCTS section--------------->
             
-            <div class="row">
+            <div class="row col-lg-12">
                 <div class="col-lg-12 text-center">
                     <div class="related__title">
                         <h5>RELATED PRODUCTS</h5>
@@ -267,7 +270,7 @@ if(isset($_SESSION['name'])){
                 </div>
                 <?php $i=1;?>
                 <?php foreach($data_category as $value):?> 
-                <?php if ($i<=4):?>
+                <?php if ($i<=3):?>
                 <div class="col-lg-4 col-md-4 col-sm-6">
                     
                     <div class="product__item">

@@ -59,7 +59,7 @@
                     <div class="image img-cir img-120">
                         <?php echo "<img src='../image/{$_SESSION['img']}' alt= '{$_SESSION['name']}' >" ?>
                     </div>
-                    <h4 class="name"><?php echo $_SESSION['name'];?></h4>
+                    <h4 class="name" ><?php echo $_SESSION['name'];?></h4>
                     <a href="./login.php">Sign out</a>
                 </div>
                 <nav class="navbar-sidebar2">

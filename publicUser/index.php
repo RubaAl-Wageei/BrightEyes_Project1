@@ -21,6 +21,10 @@
 </section>
 <!-- Categories Section End -->
 
+<div id="container" style="  width:100%;overflow:hidden;">
+    <img id="image" src="../image/php-proj.png" style="width:100%;">
+</div>
+
 <!-- Product Section Begin -->
 <section class="product spad">
     <div class="container">

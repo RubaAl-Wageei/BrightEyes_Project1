@@ -65,14 +65,7 @@ if(isset($_SESSION['name'])){
                                             if($value['discount']== 1){continue;}
 
                                       ?>
-                                      <?php
-
-                                        if(isset($_POST["NewPrice"])){
-                                                
-                                                $newPrice = $_POST['Discount'];
-                                        }
-
-                                         ?>   
+                                     
 
                                             <tr>    
                                                 <td><?php echo $i++;?></td>  

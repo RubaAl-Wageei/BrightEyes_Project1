@@ -17,7 +17,7 @@ if(!isset($_SESSION['name'])){
  $db->bindValue(':id',$user_id);
  $db->execute();
  $data= $db->fetchAll(PDO::FETCH_ASSOC);
- print_r($data);
+//  print_r($data);
 
 
 if(isset($_SESSION['cart'])){
@@ -53,7 +53,7 @@ if(isset($_SESSION['cart'])){
     $db->execute();
     $data= $db->fetchAll(PDO::FETCH_ASSOC);
     foreach($data as $value){
-           
+        
             $id=$value['id'];
             $price=$value['price'];
             $quantity=$value['quantity'];

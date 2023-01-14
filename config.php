@@ -1,6 +1,7 @@
 <?php
 
 
+
 class crud{
 
     public static function connect(){
@@ -23,7 +24,7 @@ class crud{
 }
 // function user table
 public static function selectDataUser(){
-    $data = array();
+  
     $con=crud::connect()->prepare("SELECT * FROM users");
     $con->execute();
     $data= $con->fetchAll(PDO::FETCH_ASSOC);
